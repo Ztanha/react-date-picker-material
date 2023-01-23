@@ -1,14 +1,11 @@
 import {useTheme} from "../../../ThemeContext.js";
 import {daysInMonth, getMonthStartDay} from "../utilities.js";
-import {ReactComponent as Pencil} from "./icons/pencil.svg";
-import {ReactComponent as Arrow} from "./icons/right.svg";
-import {ReactComponent as SideArrow} from "./icons/sideArrow.svg";
+
 import {useEffect, useRef, useState} from "react";
 
 
 const DayMode = props=>{
     const [colors]= useTheme();
-    const month= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const weekday= ["S","M","T","W","T","F","S"];
     const [ calendar,setCalendar] = useState();
     const [ dayPointer,setDayPointer ] = useState();
@@ -55,27 +52,7 @@ const DayMode = props=>{
 
     },[props.date,setCalendar,setDayPointer,date])
     return (
-        <div className="calendar">
-            <div className="calendar-header" >
-                <label>{ props.title || 'Select date' }</label>
-                <div className="header-date grid-order" style={styles.calHeader} >
-                    { weekday[ date?.current.getDay() ] },
-                    { month[ date?.current.getMonth() ].slice(0,3) }
-                    { date?.current.getDate() }
-                    <Pencil style={styles.icons}/>
-                </div>
-            </div>
-            <div className="line" style={{ backgroundColor:colors.outline }}/>
-            <div className="localSelectionRow grid-order">
-                <div className="date">
-                    { month[ date?.current.getMonth() ] },{ date?.current.getFullYear() }
-                    <Arrow className='icon-down' style={styles.icons}/>
-                </div>
-                <div className="icons">
-                    <SideArrow style={styles.icons} className="icon-left"/>
-                    <SideArrow style={styles.icons} className="icon-right"/>
-                </div>
-            </div>
+
             <div className="days" style={styles.calGrids}>
                 <div className="days-grid">
                     { calendar?.map((x,index)=>
@@ -94,9 +71,8 @@ const DayMode = props=>{
                     ) }
                 </div>
             </div>
-            <div className="actions">
-            </div>
-        </div>
+
+        // </div>
     )
 }
 export default DayMode;
