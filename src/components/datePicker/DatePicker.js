@@ -11,9 +11,10 @@ function ActualDatePicker(props) {
 
     const month= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    // const [ days,setDays ]=useState();
+    const [ calendar,setCalendar] = useState([]);
     const days = useRef();
     const startDay = useRef();
+
     const [ mode,setMode ]=useState('days')
     const [colors]= useTheme();
     const styles={
@@ -35,12 +36,23 @@ function ActualDatePicker(props) {
     let timeStamp = Date.now()
     let date = new Date(timeStamp) ;
 
+    function makeCalendar(daysInMonth,firstDay) {
+        let calendar = [...weekday];
+        for(let i = 1; i <= daysInMonth; i++) {
+            calendar.push(i);
+        }
+        for(let j = 0; j < firstDay; j++) {
+            calendar.unshift(" ");
+        }
+        return calendar
+    }
     useEffect(()=>{
-        days.current = daysInMonth(props.date)
-        startDay.current = getMonthStartDay(props.date)
-    },[props.date,days])
 
-    console.log([...Array(startDay?.current).keys(),...Array(days?.current).keys()])
+        setCalendar( makeCalendar(daysInMonth(props.date),getMonthStartDay(props.date)) )
+
+
+    },[props.date])
+    console.log('cal',calendar)
     return (
         <div className='DatePicker'
              style={{ ...styles.datePicker,...props.style }}
@@ -78,11 +90,11 @@ function ActualDatePicker(props) {
                                         { x.charAt(0) }
                                     </span>
                                 )}
-                                { [...Array(startDay?.current).keys(),...Array(days?.current).keys()]?.map(x=>
-                                    <span className="day" key={x+1}>
-                                        {x+1}
-                                    </span>
-                                ) }
+                                {/*{ [...Array(startDay?.current).fi,...Array(days?.current).keys()]?.map(x=>*/}
+                                {/*    <span className="day" key={x+1}>*/}
+                                {/*        {x+1}*/}
+                                {/*    </span>*/}
+                                {/*) }*/}
                             </div>
                         </div>
                         <div className="actions">
