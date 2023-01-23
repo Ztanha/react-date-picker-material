@@ -11,9 +11,7 @@ function ActualDatePicker(props) {
 
     const month= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    const [ calendar,setCalendar] = useState([]);
-    const days = useRef();
-    const startDay = useRef();
+    const [ calendar,setCalendar] = useState();
 
     const [ mode,setMode ]=useState('days')
     const [colors]= useTheme();
@@ -85,16 +83,16 @@ function ActualDatePicker(props) {
                         </div>
                         <div className="days" style={styles.calGrids}>
                             <div className="days-grid">
-                                { weekday.map((x,index)=>
-                                    <span key={index}>
-                                        { x.charAt(0) }
-                                    </span>
-                                )}
-                                {/*{ [...Array(startDay?.current).fi,...Array(days?.current).keys()]?.map(x=>*/}
-                                {/*    <span className="day" key={x+1}>*/}
-                                {/*        {x+1}*/}
+                                {/*{ weekday.map((x,index)=>*/}
+                                {/*    <span key={index}>*/}
+                                {/*        { x.charAt(0) }*/}
                                 {/*    </span>*/}
-                                {/*) }*/}
+                                {/*)}*/}
+                                { calendar?.map(x=>
+                                    <span className="day" key={x}>
+                                        {x}
+                                    </span>
+                                ) }
                             </div>
                         </div>
                         <div className="actions">
