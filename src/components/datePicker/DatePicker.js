@@ -12,7 +12,8 @@ function ActualDatePicker(props) {
     const month= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
     const [ calendar,setCalendar] = useState();
-
+    const [ dayPointer,setDayPointer ] = useState();
+    const [ selectedPointer,setSelectedPointer ] = useState();
     const [ mode,setMode ]=useState('days')
     const [colors]= useTheme();
     const styles={
@@ -29,6 +30,13 @@ function ActualDatePicker(props) {
         },
         calHeader:{
             color:colors.onSurface,
+        },
+        today:{
+            backgroundColor: colors.primary,
+            color:colors.onPrimary,
+        },
+        selectedCell:{
+            border: `1px solid ${colors.primary}`,
         }
     }
     let timeStamp = Date.now()
@@ -46,11 +54,13 @@ function ActualDatePicker(props) {
     }
     useEffect(()=>{
 
+        let date = new Date(props.date)
         setCalendar( makeCalendar(daysInMonth(props.date),getMonthStartDay(props.date)) )
+        setDayPointer(date.getDate());
 
+    },[props.date,setCalendar,setDayPointer])
 
-    },[props.date])
-    console.log('cal',calendar)
+    console.log(props.date ,dayPointer || '')
     return (
         <div className='DatePicker'
              style={{ ...styles.datePicker,...props.style }}
@@ -83,15 +93,19 @@ function ActualDatePicker(props) {
                         </div>
                         <div className="days" style={styles.calGrids}>
                             <div className="days-grid">
-                                {/*{ weekday.map((x,index)=>*/}
-                                {/*    <span key={index}>*/}
-                                {/*        { x.charAt(0) }*/}
-                                {/*    </span>*/}
-                                {/*)}*/}
                                 { calendar?.map(x=>
-                                    <span className="day" key={x}>
+                                    <div key={x}
+                                         onClick={()=>setSelectedPointer(x)}
+                                         className='day'
+                                         style={ x === dayPointer
+                                                    ? styles.today
+                                                    : ( x === selectedPointer)
+                                                        ? styles.selectedCell
+                                                        : {}
+                                                }
+                                    >
                                         {x}
-                                    </span>
+                                    </div>
                                 ) }
                             </div>
                         </div>

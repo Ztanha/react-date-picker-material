@@ -4,6 +4,14 @@
   .calendar-header label{
     @include font-label-medium;
   }
+  .pointer{
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+    //top: 0;
+    //left: 0;
+  }
   //height: 280px;
   .header-date{
     @include font-headline-large;
@@ -54,8 +62,9 @@
     left: 0;
   }
   .days{
-    //width: 100%;
 
+
+    cursor: pointer;
     .days-grid{
       min-width: 304px;
       @include font-body-small;
@@ -63,16 +72,16 @@
       grid-template-columns: repeat(7,auto);
       grid-template-rows: repeat(6,40px);
       grid-gap: 4px;
-      justify-items: center;
-      align-items: center;
       span{
         border-radius: 100%;
       }
+      .day{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        box-sizing: border-box;
+      }
     }
   }
-  //.sev-cell{
-  //  display: grid;
-  //  grid-template-columns: repeat(7,3em);
-  //  grid-template-rows: repeat(auto-fill,4em);
-  //}
 }
