@@ -21,6 +21,11 @@ function ActualDatePicker(props) {
         },
         icons:{
           fill:colors.onSurfaceVariant
+        },
+        calGrids:{
+           color:colors.onSurface,
+
+
         }
     }
     let date = new Date();
@@ -60,7 +65,7 @@ function ActualDatePicker(props) {
                                 <SideArrow style={styles.icons} className="icon-right"/>
                             </div>
                         </div>
-                        <div className="days">
+                        <div className="days" style={styles.calGrids}>
                             <div className="days-grid">
                                 { weekday.map((x,index)=>
                                     <span key={index}>

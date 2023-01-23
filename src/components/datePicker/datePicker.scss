@@ -1,4 +1,4 @@
-//@import "../../scss/App";
+@import "../../../src/App";
 .DatePicker{
   width: 328px;
   //height: 280px;
@@ -54,14 +54,13 @@
 
     .days-grid{
       width: 100%;
-
+      @include font-body-small;
       display: grid;
       grid-template-columns: repeat(7,2em);
       grid-template-rows: repeat(auto-fill,2em);
       grid-gap: 4px;
 
       span{
-        background-color: antiquewhite;
         height: 100%;
         border-radius: 100%;
         width: 100%;
