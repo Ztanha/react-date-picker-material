@@ -29,7 +29,8 @@ function ActualDatePicker(props) {
             color:colors.onSurface,
         }
     }
-    let date = new Date();
+    let timeStamp = Date.now()
+    let date = new Date(timeStamp) ;
 
     // useEffect(()=>{
     //     console.log(props.date);
