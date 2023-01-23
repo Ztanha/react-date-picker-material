@@ -20,7 +20,7 @@ function ActualDatePicker(props) {
             fontFamily:'Roboto'
         },
         svg:{
-          fill:'white'
+          fill:colors.onSurfaceVariant
         }
     }
     let date = new Date();
