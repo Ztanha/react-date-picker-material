@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
         salam
-      <DatePicker date={new Date()} show={true}/>
+      <DatePicker date={Date.now()} show={true}/>
     </div>
   );
 }

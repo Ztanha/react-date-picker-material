@@ -1,16 +1,19 @@
 import './datePicker.scss'
 import {Modal} from "../modal/Modal.js";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {ReactComponent as Pencil} from "./icons/pencil.svg";
 import {ReactComponent as Arrow} from "./icons/right.svg";
 import {ReactComponent as SideArrow} from "./icons/sideArrow.svg";
 import {ThemeProvider, useTheme} from "../../ThemeContext.js";
+import {daysInMonth, getMonthStartDay} from "./utilities.js";
 const DatePicker = props=><ThemeProvider><ActualDatePicker {...props}/></ThemeProvider>;
 function ActualDatePicker(props) {
 
     const month= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    const days= [...Array(30).keys()]
+    // const [ days,setDays ]=useState();
+    const days = useRef();
+    const startDay = useRef();
     const [ mode,setMode ]=useState('days')
     const [colors]= useTheme();
     const styles={
@@ -32,11 +35,12 @@ function ActualDatePicker(props) {
     let timeStamp = Date.now()
     let date = new Date(timeStamp) ;
 
-    // useEffect(()=>{
-    //     console.log(props.date);
-    //     setMode('day')
-    // },[props.date])
+    useEffect(()=>{
+        days.current = daysInMonth(props.date)
+        startDay.current = getMonthStartDay(props.date)
+    },[props.date,days])
 
+    console.log([...Array(startDay?.current).keys(),...Array(days?.current).keys()])
     return (
         <div className='DatePicker'
              style={{ ...styles.datePicker,...props.style }}
@@ -74,9 +78,9 @@ function ActualDatePicker(props) {
                                         { x.charAt(0) }
                                     </span>
                                 )}
-                                { days.map(x=>
-                                    <span className="day" key={x}>
-                                        {x}
+                                { [...Array(startDay?.current).keys(),...Array(days?.current).keys()]?.map(x=>
+                                    <span className="day" key={x+1}>
+                                        {x+1}
                                     </span>
                                 ) }
                             </div>
