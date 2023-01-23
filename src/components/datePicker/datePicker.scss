@@ -1,11 +1,12 @@
 @import "../../../src/App";
 .DatePicker{
+  //width: 304px;
   .calendar-header label{
     @include font-label-medium;
   }
   //height: 280px;
   .header-date{
-    @include font-label-large;
+    @include font-headline-large;
     padding:.5em 0;
     align-self: center;
     svg{
@@ -54,7 +55,6 @@
   }
   .days{
     //width: 100%;
-    padding:1em;
 
     .days-grid{
       min-width: 304px;

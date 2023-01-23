@@ -24,8 +24,9 @@ function ActualDatePicker(props) {
         },
         calGrids:{
            color:colors.onSurface,
-
-
+        },
+        calHeader:{
+            color:colors.onSurface,
         }
     }
     let date = new Date();
@@ -45,9 +46,9 @@ function ActualDatePicker(props) {
                 { mode === 'days'
 
                     ? <div className="calendar">
-                        <div className="calendar-header">
+                        <div className="calendar-header" >
                             <label>{ props.title || 'Select date' }</label>
-                            <div className="header-date grid-order" style={{ color:colors.onSurface,fontSize:'2em' }}>
+                            <div className="header-date grid-order" style={styles.calHeader} >
                                 { weekday[ date.getDay() ] },
                                 { month[ date.getMonth() ].slice(0,3) }
                                 { date.getDate() }
