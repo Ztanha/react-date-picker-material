@@ -1,6 +1,8 @@
 @import "../../../src/App";
 .DatePicker{
-  width: 328px;
+  .calendar-header label{
+    @include font-label-medium;
+  }
   //height: 280px;
   .header-date{
     @include font-label-large;
@@ -55,17 +57,16 @@
     padding:1em;
 
     .days-grid{
-      width: 100%;
+      min-width: 304px;
       @include font-body-small;
       display: grid;
-      grid-template-columns: repeat(7,2em);
-      grid-template-rows: repeat(auto-fill,2em);
+      grid-template-columns: repeat(7,auto);
+      grid-template-rows: repeat(6,40px);
       grid-gap: 4px;
-
+      justify-items: center;
+      align-items: center;
       span{
-        height: 100%;
         border-radius: 100%;
-        width: 100%;
       }
     }
   }
