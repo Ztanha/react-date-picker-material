@@ -3,7 +3,7 @@ import {Modal} from "../modal/Modal.js";
 import {useState} from "react";
 
 import {ThemeProvider, useTheme} from "../../ThemeContext.js";
-
+import DayMode from "./DayMode/DayMode.js";
 const DatePicker = props=><ThemeProvider><ActualDatePicker {...props}/></ThemeProvider>;
 function ActualDatePicker(props) {
 
