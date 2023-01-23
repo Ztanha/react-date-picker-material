@@ -4,8 +4,11 @@
   //height: 280px;
   .header-date{
     padding:.5em 0;
+    align-self: center;
     svg{
-      padding-right: 1em;
+      padding-right: 8px;
+      width: 24px;
+
     }
   }
   .grid-order{
