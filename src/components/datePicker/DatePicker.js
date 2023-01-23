@@ -18,6 +18,9 @@ function ActualDatePicker(props) {
             color:colors.onSurfaceVariant,
             backgroundColor:colors.surface3,
             fontFamily:'Roboto'
+        },
+        svg:{
+          fill:'white'
         }
     }
     let date = new Date();
@@ -43,7 +46,7 @@ function ActualDatePicker(props) {
                                 { weekday[ date.getDay() ] },
                                 { month[ date.getMonth() ].slice(0,3) }
                                 { date.getDate() }
-                                <Pencil/>
+                                <Pencil style={styles.svg}/>
                             </div>
                         </div>
                         <div className="line" style={{ backgroundColor:colors.outline }}/>
@@ -53,8 +56,8 @@ function ActualDatePicker(props) {
                                 <Arrow className='icon-down'/>
                             </div>
                             <div className="icons">
-                                <SideArrow className="icon-left"/>
-                                <SideArrow className="icon-right"/>
+                                <SideArrow style={styles.svg} className="icon-left"/>
+                                <SideArrow style={styles.svg} className="icon-right"/>
                             </div>
                         </div>
                         <div className="days">
