@@ -24,3 +24,28 @@ $font-family : Roboto,-apple-system, Ubuntu, arial;
   letter-spacing: 0.1px;
   align-content: center;
 }
+@mixin font-headline-small{
+  font-family: Roboto,sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0;
+  text-align: left;
+}
+@mixin font-headline-large{
+  font-family: Roboto,sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0;
+  text-align: left;
+}
+@mixin font-label-medium {
+  font-family: Roboto,serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  align-content: center;
+}

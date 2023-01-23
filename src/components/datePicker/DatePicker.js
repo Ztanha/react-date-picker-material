@@ -58,7 +58,7 @@ function ActualDatePicker(props) {
                         <div className="localSelectionRow grid-order">
                             <div className="date">
                                 { month[ date.getMonth() ] },{ date.getFullYear() }
-                                <Arrow className='icon-down'/>
+                                <Arrow className='icon-down' style={styles.icons}/>
                             </div>
                             <div className="icons">
                                 <SideArrow style={styles.icons} className="icon-left"/>
