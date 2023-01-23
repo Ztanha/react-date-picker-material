@@ -4,9 +4,9 @@ import {useEffect, useState} from "react";
 import {ReactComponent as Pencil} from "./icons/pencil.svg";
 import {ReactComponent as Arrow} from "./icons/right.svg";
 import {ReactComponent as SideArrow} from "./icons/sideArrow.svg";
-import {useTheme} from "../../ThemeContext.js";
-
-function DatePicker(props) {
+import {ThemeProvider, useTheme} from "../../ThemeContext.js";
+const DatePicker = props=><ThemeProvider><ActualDatePicker {...props}/></ThemeProvider>;
+function ActualDatePicker(props) {
 
     const month= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -20,10 +20,12 @@ function DatePicker(props) {
             fontFamily:'Roboto'
         }
     }
+    let date = new Date();
 
-    useEffect(()=>{
-
-    },[props.date])
+    // useEffect(()=>{
+    //     console.log(props.date);
+    //     setMode('day')
+    // },[props.date])
 
     return (
         <div className='DatePicker'
@@ -38,16 +40,16 @@ function DatePicker(props) {
                         <div className="calendar-header">
                             <label>{ props.title || 'Select date' }</label>
                             <div className="header-date grid-order" style={{ color:colors.onSurface,fontSize:'2em' }}>
-                                { weekday[ props.date.getDay() ] },
-                                { month[ props.date.getMonth() ].slice(0,3) }
-                                { props.date.getDate() }
+                                { weekday[ date.getDay() ] },
+                                { month[ date.getMonth() ].slice(0,3) }
+                                { date.getDate() }
                                 <Pencil/>
                             </div>
                         </div>
                         <div className="line" style={{ backgroundColor:colors.outline }}/>
                         <div className="localSelectionRow grid-order">
                             <div className="date">
-                                { month[ props.date.getMonth() ] },{ props.date.getFullYear() }
+                                { month[ date.getMonth() ] },{ date.getFullYear() }
                                 <Arrow className='icon-down'/>
                             </div>
                             <div className="icons">
@@ -83,4 +85,4 @@ function DatePicker(props) {
     )
 }
 
-export {DatePicker}
+export default DatePicker;
