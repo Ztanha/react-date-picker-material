@@ -10,7 +10,7 @@ import {ReactComponent as SideArrow} from "../icons/sideArrow.svg";
 const DayMode = props=>{
     const [ colors ]= useTheme();
     const weekday= ["S","M","T","W","T","F","S"];
-    const [ calendar,setCalendar] = useState();
+    const [ cells,setCells] = useState();
     const [ dayPointer,setDayPointer ] = useState();
     const [ selectedPointer,setSelectedPointer ] = useState();
     const date = useRef(new Date());
@@ -45,10 +45,10 @@ const DayMode = props=>{
     useEffect(()=>{
 
         date.current = new Date(props.date)
-        setCalendar( makeCalendar(daysInMonth(props.date),getMonthStartDay(props.date)) )
+        setCells( makeCalendar(daysInMonth(props.date),getMonthStartDay(props.date)) )
         setDayPointer(date.current.getDate());
 
-    },[props.date,setCalendar,setDayPointer,date])
+    },[props.date,setCells,setDayPointer,date])
     return (<>
         <div className="localSelectionRow grid-order">
             <div className="date"
@@ -79,7 +79,7 @@ const DayMode = props=>{
                             {x}
                         </div>
                     )}
-                    { calendar?.map((x,index)=>
+                    { cells?.map((x,index)=>
                         <div key={index}
                              onClick={()=>setSelectedPointer(x)}
                              className='cell'
