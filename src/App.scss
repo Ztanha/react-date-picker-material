@@ -8,6 +8,15 @@ $font-family : Roboto,-apple-system, Ubuntu, arial;
   letter-spacing: 0.4000000059604645px;
   text-align: left;
 }
+@mixin font-title-medium{
+  font-family: 'Roboto', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  text-align:left;
+}
 @mixin font-body-large{
   font-family: $font-family;
   font-size: 1em;

@@ -4,10 +4,12 @@ import {useTheme} from "../../../ThemeContext.js";
 
 function YearMode(props) {
     const [colors] = useTheme();
-    const thisYear = new Date().getFullYear();
     const cells = range( props.year-6 , props.year+8 )
     const [ selected,setSelected ] = useState(0);
     const styles = {
+        cell:{
+            color : colors.onSurfaceVariant
+        },
         now:{
             backgroundColor: colors.primary,
             color:colors.onPrimary,
@@ -17,27 +19,27 @@ function YearMode(props) {
         }
     }
 
-    function handleYearChange(year){
-        setSelected(year)
-        const tempDate = new Date(props.date);
-        const month = tempDate.getMonth();
-        const day =tempDate.getDate();
-
-        props.setDate(new Date(year,month,day))
-    }
+    // function handleYearChange(year){
+    //
+    //     const tempDate = new Date(props.date);
+    //     const month = tempDate.getMonth();
+    //     const day =tempDate.getDate();
+    //
+    //     props.setDate(new Date(year,month,day))
+    // }
 
     return (
         <div className="years" style={{}}>
             <div className="years-grid">
                 { cells.map( x=>
-                    <div className='cell'
-                         onClick={ ()=>handleYearChange(x) }
+                    <div className={(x === props.year) ? 'now cell': 'cell'}
+                         onClick={ ()=>setSelected(x) }
                          key={x}
                          style={ x === selected
                                     ? styles.selected
                                     : x === props.year
                                         ? styles.now
-                                        : {}
+                                        : styles.cell
                         }
                     >
                         {x}

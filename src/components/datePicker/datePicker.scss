@@ -74,7 +74,9 @@
       grid-template-columns: repeat(3,auto);
       grid-template-rows: repeat(5,40px);
       grid-gap: 10px;
-
+    }
+    .now{
+      @include font-title-medium;
     }
   }
   .cell{
@@ -99,7 +101,7 @@
       }
       .first-row{
         pointer-events: none !important;
-        cursor: none;
+        cursor: none !important;
       }
     }
   }
