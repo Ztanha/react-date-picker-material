@@ -1,6 +1,7 @@
 import {daysInMonth, getMonthStartDay, range} from "../utilities.js";
 import {useEffect, useRef, useState} from "react";
 import {useTheme} from "../../../ThemeContext.js";
+import Button from "../../button/Button.js";
 
 function YearMode(props) {
     const [colors] = useTheme();
@@ -49,6 +50,20 @@ function YearMode(props) {
             <div className="line"
                  style={{ backgroundColor:colors.outline }}
             />
+            <div className="actions">
+                <div className='btns-container'>
+                    <Button type={ 'text' }
+                            click={ props.onClick }
+                    >
+                        Cancel
+                    </Button>
+                    <Button type={ 'text' }
+                            click={ ()=>props.onChange(selected)}
+                    >
+                        OK
+                    </Button>
+                </div>
+            </div>
         </div>
     )
 }

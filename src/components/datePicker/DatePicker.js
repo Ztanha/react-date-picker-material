@@ -35,6 +35,12 @@ function ActualDatePicker(props) {
             }
         }
     }
+    function handleYearChange(year) {
+        const tempDate = new Date(props.date);
+        const month = tempDate.getMonth();
+        const day =tempDate.getDate();
+        props.setDate(new Date(year,month,day))
+    }
     const styles={
         datePicker:{
             color:colors.onSurfaceVariant,
@@ -101,7 +107,7 @@ function ActualDatePicker(props) {
                     ? <DayMode month={ month } setMonth={setMonth} date={props.date} />
                     : mode === 'years'
 
-                        ? <YearMode year={ year } setYear={setYear} buttons={props.buttons} />
+                        ? <YearMode year={ year } onChange={handleYearChange} buttons={props.buttons} />
                         : <div className="years">
                             Years
                         </div>
