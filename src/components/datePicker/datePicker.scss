@@ -61,6 +61,23 @@
     height:.1em;
     left: 0;
   }
+  .years{
+    min-width: 304px;
+    @include font-body-large;
+    .years-grid{
+      display: grid;
+      grid-template-columns: repeat(3,auto);
+      grid-template-rows: repeat(5,40px);
+      grid-gap: 10px;
+
+    }
+  }
+  .cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+  }
   .days{
     cursor: pointer;
     .days-grid{
@@ -73,13 +90,6 @@
       grid-gap: 4px;
       span{
         border-radius: 100%;
-      }
-      .cell{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 100%;
-
       }
       .first-row{
         pointer-events: none !important;

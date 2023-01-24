@@ -5,19 +5,14 @@ function YearMode(props) {
     const year = useRef(0);
     const [ cells,setCells ] = useState([]);
 
-    function makeTable() {
-        for( let i = 0 ;i <= year ;i++) {
-
-        }
-    }
     useEffect(()=>{
         year.current = new Date(props.date).getFullYear();
-        setCells(range(year.current-6,year.current+9));
+        setCells(range(year.current-6,year.current+8));
     },[props.date,year])
 
     console.log(cells)
     return (
-        <div className="days">
+        <div className="years" style={{}}>
             <div className="years-grid">
                 { cells.map(x=>
                     <div className='cell'>
