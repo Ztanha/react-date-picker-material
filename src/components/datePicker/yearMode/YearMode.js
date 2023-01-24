@@ -3,7 +3,6 @@ import {useEffect, useRef, useState} from "react";
 import {useTheme} from "../../../ThemeContext.js";
 
 function YearMode(props) {
-    const year = useRef();
     const [colors] = useTheme();
     const thisYear = new Date().getFullYear();
     const cells = range(thisYear-6,thisYear+8)
@@ -26,9 +25,6 @@ function YearMode(props) {
 
         props.setDate(new Date(year,month,day))
     }
-    useEffect(()=>{
-        year.current = new Date(props.date).getFullYear();
-    },[ props.date,year ])
 
     console.log(selected)
     return (
