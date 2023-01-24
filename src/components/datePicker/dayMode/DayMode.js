@@ -9,7 +9,7 @@ import {ReactComponent as SideArrow} from "../icons/sideArrow.svg";
 
 const DayMode = props=>{
     const [ colors ]= useTheme();
-    const weekday= ["S","M","T","W","T","F","S"];
+    const weekday= ["Su","Mo","Tu","We","Th","Fr","Sa"];
     const [ cells,setCells] = useState();
     const [ dayPointer,setDayPointer ] = useState();
     const [ selectedDay,setSelectedDay ] = useState();
