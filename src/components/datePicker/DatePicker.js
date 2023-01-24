@@ -57,7 +57,7 @@ function ActualDatePicker(props) {
                     </div>
                     <div className="line" style={{ backgroundColor:colors.outline }}/>
                     <div className="localSelectionRow grid-order">
-                        <div className="date" onClick={ ()=>setMode('year') }>
+                        <div className="date" onClick={ ()=>setMode(mode === 'years' ? 'days': 'years' ) }>
                             { month[ date?.current.getMonth() ] },{ date?.current.getFullYear() }
                             <Arrow className='icon-down' style={styles.icons}/>
                         </div>
@@ -71,7 +71,7 @@ function ActualDatePicker(props) {
 
                     ? <DayMode {...props}/>
 
-                    : mode === 'year'
+                    : mode === 'years'
 
                         ? <YearMode {...props} />
                         : <div className="years">Years</div>

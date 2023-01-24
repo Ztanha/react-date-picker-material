@@ -26,7 +26,6 @@ function YearMode(props) {
         props.setDate(new Date(year,month,day))
     }
 
-    console.log(selected)
     return (
         <div className="years" style={{}}>
             <div className="years-grid">
@@ -38,7 +37,7 @@ function YearMode(props) {
                                     : x === thisYear
                                         ? styles.now
                                         : {}
-                                }
+                        }
                     >
                         {x}
                     </div>
