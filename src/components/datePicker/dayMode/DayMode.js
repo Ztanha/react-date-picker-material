@@ -2,6 +2,7 @@ import {useTheme} from "../../../ThemeContext.js";
 import {daysInMonth, getMonthStartDay} from "../utilities.js";
 
 import {useEffect, useRef, useState} from "react";
+import Button from "../../button/Button.js";
 
 
 const DayMode = props=>{
@@ -67,6 +68,20 @@ const DayMode = props=>{
                             {x}
                         </div>
                     ) }
+                </div>
+                <div className="actions">
+                    <div className='btns-container'>
+                        <Button type={ 'text' }
+                                // click={ props.hide() }
+                        >
+                            Cancel
+                        </Button>
+                        <Button type={ 'text' }
+                                // click={ ()=>props.onChange(selected)}
+                        >
+                            OK
+                        </Button>
+                    </div>
                 </div>
             </div>
         )
