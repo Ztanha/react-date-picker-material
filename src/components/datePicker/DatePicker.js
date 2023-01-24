@@ -20,21 +20,6 @@ function ActualDatePicker(props) {
     const [colors]= useTheme();
     const date = useRef(new Date());
 
-    function handleShift( direction ) {
-        if( mode === 'days') {
-            if( direction === 'f') {
-                //go to next month
-            } else {
-
-            }
-        } else {
-            if( direction === 'f') {
-                //go to next 15 years
-            } else {
-
-            }
-        }
-    }
     function handleYearChange(year) {
         const tempDate = new Date(props.date);
         const month = tempDate.getMonth();
@@ -83,26 +68,6 @@ function ActualDatePicker(props) {
                     <div className="line"
                          style={{ backgroundColor:colors.outline }}
                     />
-                    {/*<div className="localSelectionRow grid-order">*/}
-                    {/*    <div className="date"*/}
-                    {/*         onClick={ ()=>setMode(mode === 'years' ? 'days': 'years' ) }*/}
-                    {/*    >*/}
-                    {/*        { months[ date?.current.getMonth() ] },{ date?.current.getFullYear() }*/}
-                    {/*        <Arrow className='icon-down'*/}
-                    {/*               style={ styles.icons }*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*    <div className="icons">*/}
-                    {/*        <SideArrow style={ styles.icons }*/}
-                    {/*                   className="icon-left"*/}
-                    {/*                   onClick={ ()=>handleShift('b') }*/}
-                    {/*        />*/}
-                    {/*        <SideArrow style={ styles.icons }*/}
-                    {/*                   className="icon-right"*/}
-                    {/*                   onClick={ ()=>handleShift('f') }*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
 
                 { mode === 'days'
 
