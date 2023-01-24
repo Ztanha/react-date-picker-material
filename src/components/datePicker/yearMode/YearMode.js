@@ -44,6 +44,7 @@ function YearMode(props) {
                     </div>
                 )}
             </div>
+            <div className="line" style={{ backgroundColor:colors.outline }}/>
         </div>
     )
 }

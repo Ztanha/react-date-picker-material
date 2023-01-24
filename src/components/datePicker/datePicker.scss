@@ -1,6 +1,11 @@
 @import "../../../src/App";
 .DatePicker{
   //width: 304px;
+  .btns-container{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+  }
   .calendar-header label{
     @include font-label-medium;
   }

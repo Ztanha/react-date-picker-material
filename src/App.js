@@ -9,6 +9,14 @@ function App() {
       <DatePicker date={ date }
                   show={ true }
                   setDate={ setDate }
+                  buttons={[
+                      {
+                          label:'Cancel'
+                      },
+                      {
+                          label:'OK'
+                      }
+                  ]}
       />
     </div>
   );

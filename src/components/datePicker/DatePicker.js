@@ -7,6 +7,7 @@ import {ReactComponent as SideArrow} from "./icons/sideArrow.svg";
 import {ThemeProvider, useTheme} from "../../ThemeContext.js";
 import DayMode from "./dayMode/DayMode.js";
 import YearMode from "./yearMode/YearMode.js";
+import Button from "../button/Button.js";
 const DatePicker = props=><ThemeProvider><ActualDatePicker {...props}/></ThemeProvider>;
 
 function ActualDatePicker(props) {
@@ -88,9 +89,13 @@ function ActualDatePicker(props) {
                 }
                 </div>
                 <div className="actions">
-                    { props.btttons.map(x=>
-                        <Button/>
-                    )}
+                    <div className='btns-container'>
+                        { props.buttons.map(x=>
+                            <Button type={ 'text' }>
+                                { x.label }
+                            </Button>
+                        )}
+                    </div>
                 </div>
             </Modal>
         </div>
