@@ -6,7 +6,7 @@
     grid-auto-flow: column;
     justify-content: end;
   }
-  .calendar-header label{
+  .calendar-header{
     @include font-label-medium;
   }
   .pointer{

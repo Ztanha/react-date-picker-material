@@ -1,6 +1,6 @@
 import './datePicker.scss'
 import {Modal} from "../modal/Modal.js";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {ReactComponent as Pencil} from "./icons/pencil.svg";
 import {ReactComponent as Arrow} from "./icons/right.svg";
 import {ReactComponent as SideArrow} from "./icons/sideArrow.svg";
@@ -12,11 +12,29 @@ const DatePicker = props=><ThemeProvider><ActualDatePicker {...props}/></ThemePr
 
 function ActualDatePicker(props) {
 
-    const month= ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sau"];
     const [ mode,setMode ]=useState('days')
+    const [ month,setMonth ]=useState();
+    const [ year,setYear ]=useState();
     const [colors]= useTheme();
     const date = useRef(new Date());
+
+    function handleShift( direction ) {
+        if( mode === 'days') {
+            if( direction === 'f') {
+                //go to next month
+            } else {
+
+            }
+        } else {
+            if( direction === 'f') {
+                //go to next 15 years
+            } else {
+
+            }
+        }
+    }
     const styles={
         datePicker:{
             color:colors.onSurfaceVariant,
@@ -40,12 +58,16 @@ function ActualDatePicker(props) {
             border: `1px solid ${colors.primary}`,
         }
     }
+    useEffect(() => {
+        setMonth()
+    }, [props.date,setMonth,setYear,month,year])
     return (
         <div className='DatePicker'
              style={{ ...styles.datePicker,...props.style }}
         >
             <Modal show={ props.show }
-                   hide={ props.hide }>
+                   hide={ props.hide }
+            >
                 <div className="calendar">
                     <div className="calendar-header" >
                         <label>{ props.title || 'Select date' }</label>
@@ -53,7 +75,7 @@ function ActualDatePicker(props) {
                              style={styles.calHeader}
                         >
                             { weekday[ date?.current.getDay() ] },
-                            { month[ date?.current.getMonth() ].slice(0,3) }
+                            { months[ date?.current.getMonth() ].slice(0,3) }
                             { date?.current.getDate() }
                             <Pencil style={styles.icons}/>
                         </div>
@@ -65,29 +87,33 @@ function ActualDatePicker(props) {
                         <div className="date"
                              onClick={ ()=>setMode(mode === 'years' ? 'days': 'years' ) }
                         >
-                            { month[ date?.current.getMonth() ] },{ date?.current.getFullYear() }
+                            { months[ date?.current.getMonth() ] },{ date?.current.getFullYear() }
                             <Arrow className='icon-down'
                                    style={styles.icons}
                             />
                         </div>
                         <div className="icons">
-                            <SideArrow style={styles.icons}
+                            <SideArrow style={ styles.icons }
                                        className="icon-left"
+                                       onClick={ ()=>handleShift('b') }
                             />
-                            <SideArrow style={styles.icons}
+                            <SideArrow style={ styles.icons }
                                        className="icon-right"
+                                       onClick={ ()=>handleShift('f') }
                             />
                         </div>
                     </div>
 
                 { mode === 'days'
 
-                    ? <DayMode {...props}/>
+                    ? <DayMode month={ month } />
 
                     : mode === 'years'
 
-                        ? <YearMode {...props} />
-                        : <div className="years">Years</div>
+                        ? <YearMode year={ year } />
+                        : <div className="years">
+                            Years
+                        </div>
                 }
                 </div>
                 <div className="actions">

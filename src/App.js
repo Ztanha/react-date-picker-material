@@ -9,6 +9,7 @@ function App() {
       <button onClick={()=>setShow(true)}>
           Click me!
       </button>
+        <div>Date: {date}</div>
       <DatePicker date={ date }
                   show={ show }
                   hide={ ()=>setShow(false)}

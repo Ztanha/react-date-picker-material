@@ -12,14 +12,6 @@ const DayMode = props=>{
     const [ selectedPointer,setSelectedPointer ] = useState();
     const date = useRef(new Date());
     const styles={
-        datePicker:{
-            color:colors.onSurfaceVariant,
-            backgroundColor:colors.surface3,
-            fontFamily:'Roboto'
-        },
-        icons:{
-            fill:colors.onSurfaceVariant
-        },
         calGrids:{
             color:colors.onSurface,
         },
@@ -55,7 +47,9 @@ const DayMode = props=>{
             <div className="days" style={styles.calGrids}>
                 <div className="days-grid">
                     { weekday.map((x,index)=>
-                        <div key={index} className='first-row cell'>
+                        <div key={index}
+                             className='first-row cell'
+                        >
                             {x}
                         </div>
                     )}
