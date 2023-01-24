@@ -8,11 +8,11 @@ import {ThemeProvider, useTheme} from "../../ThemeContext.js";
 import DayMode from "./dayMode/DayMode.js";
 import YearMode from "./yearMode/YearMode.js";
 import Button from "../button/Button.js";
+import {monthName} from "./utilities.js";
 const DatePicker = props=><ThemeProvider><ActualDatePicker {...props}/></ThemeProvider>;
 
 function ActualDatePicker(props) {
 
-    const months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sau"];
     const [ mode,setMode ]=useState('days')
     const [ month,setMonth ]=useState(0);
@@ -75,7 +75,7 @@ function ActualDatePicker(props) {
                              style={ styles.calHeader }
                         >
                             { weekday[ date?.current.getDay() ] },
-                            { months[ date?.current.getMonth() ].slice(0,3) }
+                            { monthName( date?.current.getMonth()).slice(0,3) }
                             { date?.current.getDate() }
                             <Pencil style={ styles.icons }/>
                         </div>
