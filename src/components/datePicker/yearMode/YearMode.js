@@ -7,7 +7,8 @@ import {ReactComponent as SideArrow} from "../icons/sideArrow.svg";
 
 function YearMode(props) {
     const [colors] = useTheme();
-    const cells = range( props.year-6 , props.year+8 )
+    const [ cells,setCells ]=useState([]);
+    const refYear= useRef()
     const [ selectedYear,setSelectedYear ] = useState();
     const styles = {
         cell:{
@@ -24,6 +25,15 @@ function YearMode(props) {
             fill:colors.onSurfaceVariant
         }
     }
+    function reloadCells(referenceYear) {
+        setCells( range(referenceYear-6 , referenceYear+8))
+        refYear.current = referenceYear;
+    }
+
+    useEffect(()=>{
+        reloadCells(props.year)
+
+    },[props.year])
 
     return (<>
         <div className="localSelectionRow grid-order">
@@ -38,11 +48,11 @@ function YearMode(props) {
             <div className="icons">
                 <SideArrow style={ styles.icons }
                            className="icon-left"
-                           // onClick={ ()=>handleShift('b') }
+                           onClick={ ()=>reloadCells(refYear.current-15)}
                 />
                 <SideArrow style={ styles.icons }
                            className="icon-right"
-                           // onClick={ ()=>handleShift('f') }
+                           onClick={ ()=>reloadCells(refYear.current+15)}
                 />
             </div>
         </div>
