@@ -11,4 +11,5 @@ function getMonthStartDay(timestamp) {
     date.setDate(1);
     return date.getUTCDay(); // get the day of the week (0-6, where 0 is Sunday)
 }
-export {daysInMonth,getMonthStartDay}
+const range = (start, end) => [...Array(end - start + 1).keys()].map(x => x + start);
+export {daysInMonth,getMonthStartDay,range}

@@ -62,8 +62,6 @@
     left: 0;
   }
   .days{
-
-
     cursor: pointer;
     .days-grid{
       box-sizing: border-box;
@@ -76,7 +74,7 @@
       span{
         border-radius: 100%;
       }
-      .day{
+      .cell{
         display: flex;
         justify-content: center;
         align-items: center;

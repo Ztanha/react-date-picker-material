@@ -5,7 +5,7 @@ import {useEffect, useRef, useState} from "react";
 
 
 const DayMode = props=>{
-    const [colors]= useTheme();
+    const [ colors ]= useTheme();
     const weekday= ["S","M","T","W","T","F","S"];
     const [ calendar,setCalendar] = useState();
     const [ dayPointer,setDayPointer ] = useState();
@@ -52,13 +52,12 @@ const DayMode = props=>{
 
     },[props.date,setCalendar,setDayPointer,date])
     return (
-
             <div className="days" style={styles.calGrids}>
                 <div className="days-grid">
                     { calendar?.map((x,index)=>
                         <div key={index}
                              onClick={()=>setSelectedPointer(x)}
-                             className={(index < 7)? 'first-row day' : 'day'}
+                             className={(index < 7)? 'first-row cell' : 'cell'}
                              style={ x === dayPointer
                                  ? styles.today
                                  : ( x === selectedPointer)
@@ -71,8 +70,6 @@ const DayMode = props=>{
                     ) }
                 </div>
             </div>
-
-        // </div>
-    )
+        )
 }
 export default DayMode;

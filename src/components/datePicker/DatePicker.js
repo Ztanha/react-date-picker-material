@@ -5,8 +5,10 @@ import {ReactComponent as Pencil} from "./icons/pencil.svg";
 import {ReactComponent as Arrow} from "./icons/right.svg";
 import {ReactComponent as SideArrow} from "./icons/sideArrow.svg";
 import {ThemeProvider, useTheme} from "../../ThemeContext.js";
-import DayMode from "./DayMode/DayMode.js";
+import DayMode from "./dayMode/DayMode.js";
+import YearMode from "./yearMode/YearMode.js";
 const DatePicker = props=><ThemeProvider><ActualDatePicker {...props}/></ThemeProvider>;
+
 function ActualDatePicker(props) {
 
     const month= ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -37,11 +39,9 @@ function ActualDatePicker(props) {
             border: `1px solid ${colors.primary}`,
         }
     }
-
-    // console.log(props.date ,dayPointer || '')
     return (
         <div className='DatePicker'
-             // style={{ ...styles.datePicker,...props.style }}
+             style={{ ...styles.datePicker,...props.style }}
         >
             <Modal show={ props.show }
                    hide={ props.hide }>
@@ -57,7 +57,7 @@ function ActualDatePicker(props) {
                     </div>
                     <div className="line" style={{ backgroundColor:colors.outline }}/>
                     <div className="localSelectionRow grid-order">
-                        <div className="date">
+                        <div className="date" onClick={ ()=>setMode('year') }>
                             { month[ date?.current.getMonth() ] },{ date?.current.getFullYear() }
                             <Arrow className='icon-down' style={styles.icons}/>
                         </div>
@@ -71,9 +71,9 @@ function ActualDatePicker(props) {
 
                     ? <DayMode {...props}/>
 
-                    : mode === 'months'
+                    : mode === 'year'
 
-                        ? <div className="months">Months</div>
+                        ? <YearMode {...props} />
                         : <div className="years">Years</div>
                 }
                 </div>
