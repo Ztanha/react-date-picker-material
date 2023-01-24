@@ -14,7 +14,7 @@ const DayMode = props=>{
     const [ dayPointer,setDayPointer ] = useState();
     const [ selectedDay,setSelectedDay ] = useState();
     const date = useRef(new Date());
-    const refMonth = useRef(0); // in form of timeStamp without day
+    const [ refMonth,setRefMonth ] = useState(); // in form of timeStamp without day - needs to be undefined
     const styles={
         calGrids:{
             color:colors.onSurface,
@@ -45,24 +45,15 @@ const DayMode = props=>{
         }
         setCells(calendar);
     }
-    function changeMonth(op) {
-        let tempDate = new Date(refMonth.current)
-        const month = tempDate.getMonth();
-        let newMonth;
-        if( op === 'inc') {
-            newMonth = month+1
-        }else{
-            newMonth = month-1
-        }
-        let dd = new Date(tempDate.getFullYear(),newMonth,0).getTime();
-        console.log('dd:',dd)
-        refMonth.current = dd;
-    }
-    console.log(refMonth.current)
+
+    useEffect(()=>{
+        reloadCells(new Date(props.year,refMonth+1,0).getTime())
+    },[refMonth,setCells])
+
     useEffect(()=>{
 
         date.current = new Date(props.date)
-        refMonth.current = props.date;
+        setRefMonth(new Date(props.date).getMonth());
         reloadCells(props.date)
         setDayPointer(date.current.getDate());
 
@@ -73,7 +64,7 @@ const DayMode = props=>{
             <div className="date"
                  onClick={ ()=>props.setMode('years') }
             >
-                { monthName(props.month) },{ props.year }
+                { monthName(refMonth)},{ props.year }
                 <Arrow className='icon-down'
                        style={ styles.icons }
                 />
@@ -81,11 +72,11 @@ const DayMode = props=>{
             <div className="icons">
                 <SideArrow style={ styles.icons }
                            className="icon-left"
-                           onClick={ ()=>changeMonth('dec') }
+                           onClick={ ()=>setRefMonth(refMonth-1 < 0 ? 12+(refMonth-1) : refMonth-1) }
                 />
                 <SideArrow style={ styles.icons }
                            className="icon-right"
-                           onClick={ ()=>changeMonth('inc') }
+                           onClick={ ()=>setRefMonth(refMonth+1 === 0 ? 0 : (refMonth+1)%12) }
                 />
             </div>
         </div>
