@@ -26,4 +26,4 @@ function monthName(number) {
     const months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     return months[number]
 }
-export {daysInMonth,getMonthStartDay,range,hexToRGB}
+export {daysInMonth,getMonthStartDay,range,hexToRGB,monthName}

@@ -1,5 +1,5 @@
 import {useTheme} from "../../../ThemeContext.js";
-import {daysInMonth, getMonthStartDay} from "../utilities.js";
+import {daysInMonth, getMonthStartDay, monthName} from "../utilities.js";
 
 import {useEffect, useRef, useState} from "react";
 import Button from "../../button/Button.js";
@@ -27,6 +27,9 @@ const DayMode = props=>{
         },
         selectedCell:{
             border: `1px solid ${colors.primary}`,
+        },
+        icons:{
+            fill:colors.onSurfaceVariant
         }
     }
     function makeCalendar(daysInMonth,firstDay) {
@@ -49,9 +52,9 @@ const DayMode = props=>{
     return (<>
         <div className="localSelectionRow grid-order">
             <div className="date"
-                 onClick={ ()=>props.setMode('days') }
+                 onClick={ ()=>props.setMode('years') }
             >
-                { props.month },{ props.year }
+                { monthName(props.month) },{ props.year }
                 <Arrow className='icon-down'
                        style={ styles.icons }
                 />

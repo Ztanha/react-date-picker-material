@@ -1,4 +1,4 @@
-import {daysInMonth, getMonthStartDay, range} from "../utilities.js";
+import {daysInMonth, getMonthStartDay, monthName, range} from "../utilities.js";
 import {useEffect, useRef, useState} from "react";
 import {useTheme} from "../../../ThemeContext.js";
 import Button from "../../button/Button.js";
@@ -19,6 +19,9 @@ function YearMode(props) {
         },
         selected:{
             border: `1px solid ${ colors.primary }`,
+        },
+        icons:{
+            fill:colors.onSurfaceVariant
         }
     }
 
@@ -27,7 +30,7 @@ function YearMode(props) {
             <div className="date"
                  onClick={ ()=>props.setMode('days') }
             >
-                { props.month },{ selectedYear || props.year }
+                { monthName(props.month) },{ selectedYear || props.year }
                 <Arrow className='icon-down'
                        style={ styles.icons }
                 />

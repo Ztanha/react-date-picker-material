@@ -42,15 +42,16 @@ function ActualDatePicker(props) {
         props.setDate(new Date(year,month,day).getTime())
         setMode('days')
     }
+    function handleDayChange(){
+
+    }
     const styles={
         datePicker:{
             color:colors.onSurfaceVariant,
             backgroundColor:colors.surface3,
             fontFamily:'Roboto'
         },
-        icons:{
-            fill:colors.onSurfaceVariant
-        }
+
     }
     useEffect(() => {
         const tempDate = new Date(props.date);
@@ -109,6 +110,8 @@ function ActualDatePicker(props) {
                                setMonth={setMonth}
                                date={props.date}
                                year={ year }
+                               setMode={setMode}
+                               onChange={handleDayChange}
                     />
                     : mode === 'years'
 
