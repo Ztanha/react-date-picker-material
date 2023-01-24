@@ -12,7 +12,7 @@ const DayMode = props=>{
     const weekday= ["S","M","T","W","T","F","S"];
     const [ cells,setCells] = useState();
     const [ dayPointer,setDayPointer ] = useState();
-    const [ selectedPointer,setSelectedPointer ] = useState();
+    const [ selectedDay,setSelectedDay ] = useState();
     const date = useRef(new Date());
     const styles={
         calGrids:{
@@ -81,11 +81,11 @@ const DayMode = props=>{
                     )}
                     { cells?.map((x,index)=>
                         <div key={index}
-                             onClick={()=>setSelectedPointer(x)}
+                             onClick={()=>setSelectedDay(x)}
                              className='cell'
                              style={ x === dayPointer
                                  ? styles.today
-                                 : ( x === selectedPointer)
+                                 : ( x === selectedDay)
                                      ? styles.selectedCell
                                      : {}
                              }
