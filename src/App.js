@@ -14,15 +14,6 @@ function App() {
                   show={ show }
                   hide={ ()=>setShow(false)}
                   setDate={ setDate }
-                  buttons={[
-                      {
-                          label:'Cancel',
-                          onClick:()=>setShow(false)
-                      },
-                      {
-                          label:'OK'
-                      }
-                  ]}
       />
     </div>
   );

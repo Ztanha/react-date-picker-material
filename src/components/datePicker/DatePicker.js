@@ -101,24 +101,13 @@ function ActualDatePicker(props) {
                     ? <DayMode month={ month } setMonth={setMonth} date={props.date} />
                     : mode === 'years'
 
-                        ? <YearMode year={ year } setYear={setYear} />
+                        ? <YearMode year={ year } setYear={setYear} buttons={props.buttons} />
                         : <div className="years">
                             Years
                         </div>
                 }
                 </div>
-                <div className="actions">
-                    <div className='btns-container'>
-                        { props.buttons.map((x,index)=>
-                            <Button type={ 'text' }
-                                    click={ x.onClick }
-                                    key={index}
-                            >
-                                { x.label }
-                            </Button>
-                        )}
-                    </div>
-                </div>
+
             </Modal>
         </div>
     )
