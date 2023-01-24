@@ -3,15 +3,20 @@ import {useState} from "react";
 
 function App() {
     const [ date,setDate ] = useState(Date.now());
+    const [ show,setShow ] = useState(true);
   return (
     <div className="App">
-        salam
+      <button onClick={()=>setShow(true)}>
+          Click me!
+      </button>
       <DatePicker date={ date }
-                  show={ true }
+                  show={ show }
+                  hide={ ()=>setShow(false)}
                   setDate={ setDate }
                   buttons={[
                       {
-                          label:'Cancel'
+                          label:'Cancel',
+                          onClick:()=>setShow(false)
                       },
                       {
                           label:'OK'

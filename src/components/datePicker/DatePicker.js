@@ -58,7 +58,9 @@ function ActualDatePicker(props) {
                             <Pencil style={styles.icons}/>
                         </div>
                     </div>
-                    <div className="line" style={{ backgroundColor:colors.outline }}/>
+                    <div className="line"
+                         style={{ backgroundColor:colors.outline }}
+                    />
                     <div className="localSelectionRow grid-order">
                         <div className="date"
                              onClick={ ()=>setMode(mode === 'years' ? 'days': 'years' ) }
@@ -90,8 +92,11 @@ function ActualDatePicker(props) {
                 </div>
                 <div className="actions">
                     <div className='btns-container'>
-                        { props.buttons.map(x=>
-                            <Button type={ 'text' }>
+                        { props.buttons.map((x,index)=>
+                            <Button type={ 'text' }
+                                    click={ x.onClick }
+                                    key={index}
+                            >
                                 { x.label }
                             </Button>
                         )}
