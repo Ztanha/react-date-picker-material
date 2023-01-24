@@ -1,0 +1,25 @@
+@import '../../../scss/App.scss';
+.buttons{
+  width: 100%;
+  .btn{
+    box-sizing: border-box;
+    border-radius: 20px;
+    @include font-label-large;
+    position: relative;
+    height: 40px;
+    padding: 0 2em;
+  }
+  .big{
+    width: 19em !important;
+  }
+  .filled{
+    border: none;
+  }
+  .outlined{
+    box-shadow: none;
+  }
+  .text{
+    background-color: transparent;
+    border: none;
+  }
+}
