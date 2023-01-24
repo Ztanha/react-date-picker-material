@@ -39,7 +39,8 @@ function ActualDatePicker(props) {
         const tempDate = new Date(props.date);
         const month = tempDate.getMonth();
         const day =tempDate.getDate();
-        props.setDate(new Date(year,month,day))
+        props.setDate(new Date(year,month,day).getTime())
+        setMode('days')
     }
     const styles={
         datePicker:{
