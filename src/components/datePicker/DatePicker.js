@@ -75,6 +75,7 @@ function ActualDatePicker(props) {
                                year={ year }
                                setMode={setMode}
                                onChange={handleDayChange}
+                               hide={props.hide}
                     />
                     : mode === 'years'
 
@@ -83,6 +84,7 @@ function ActualDatePicker(props) {
                                     onChange={handleYearChange}
                                     buttons={props.buttons}
                                     setMode={setMode}
+                                    hide={props.hide}
                         />
                         : <div className="years">
                             Years
