@@ -2,8 +2,6 @@ import './datePicker.scss'
 import {Modal} from "../modal/Modal.js";
 import {useEffect, useRef, useState} from "react";
 import {ReactComponent as Pencil} from "./icons/pencil.svg";
-import {ReactComponent as Arrow} from "./icons/right.svg";
-import {ReactComponent as SideArrow} from "./icons/sideArrow.svg";
 import {ThemeProvider, useTheme} from "../../ThemeContext.js";
 import DayMode from "./dayMode/DayMode.js";
 import YearMode from "./yearMode/YearMode.js";
