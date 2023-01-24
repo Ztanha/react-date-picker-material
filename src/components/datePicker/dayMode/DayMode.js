@@ -32,7 +32,7 @@ const DayMode = props=>{
             fill:colors.onSurfaceVariant
         }
     }
-    function makeCalendar(daysInMonth,firstDay) {
+    function reloadCells(daysInMonth,firstDay) {
         let calendar = [];
         for(let i = 1; i <= daysInMonth; i++) {
             calendar.push(i);
@@ -45,7 +45,7 @@ const DayMode = props=>{
     useEffect(()=>{
 
         date.current = new Date(props.date)
-        setCells( makeCalendar(daysInMonth(props.date),getMonthStartDay(props.date)) )
+        setCells( reloadCells(daysInMonth(props.date),getMonthStartDay(props.date)) )
         setDayPointer(date.current.getDate());
 
     },[props.date,setCells,setDayPointer,date])
