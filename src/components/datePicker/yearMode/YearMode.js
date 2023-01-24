@@ -1,4 +1,4 @@
-import {daysInMonth, getMonthStartDay, monthName, range} from "../utilities.js";
+import {monthName, range} from "../utilities.js";
 import {useEffect, useRef, useState} from "react";
 import {useTheme} from "../../../ThemeContext.js";
 import Button from "../../button/Button.js";
