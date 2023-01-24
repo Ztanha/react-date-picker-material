@@ -82,33 +82,42 @@ function ActualDatePicker(props) {
                     <div className="line"
                          style={{ backgroundColor:colors.outline }}
                     />
-                    <div className="localSelectionRow grid-order">
-                        <div className="date"
-                             onClick={ ()=>setMode(mode === 'years' ? 'days': 'years' ) }
-                        >
-                            { months[ date?.current.getMonth() ] },{ date?.current.getFullYear() }
-                            <Arrow className='icon-down'
-                                   style={ styles.icons }
-                            />
-                        </div>
-                        <div className="icons">
-                            <SideArrow style={ styles.icons }
-                                       className="icon-left"
-                                       onClick={ ()=>handleShift('b') }
-                            />
-                            <SideArrow style={ styles.icons }
-                                       className="icon-right"
-                                       onClick={ ()=>handleShift('f') }
-                            />
-                        </div>
-                    </div>
+                    {/*<div className="localSelectionRow grid-order">*/}
+                    {/*    <div className="date"*/}
+                    {/*         onClick={ ()=>setMode(mode === 'years' ? 'days': 'years' ) }*/}
+                    {/*    >*/}
+                    {/*        { months[ date?.current.getMonth() ] },{ date?.current.getFullYear() }*/}
+                    {/*        <Arrow className='icon-down'*/}
+                    {/*               style={ styles.icons }*/}
+                    {/*        />*/}
+                    {/*    </div>*/}
+                    {/*    <div className="icons">*/}
+                    {/*        <SideArrow style={ styles.icons }*/}
+                    {/*                   className="icon-left"*/}
+                    {/*                   onClick={ ()=>handleShift('b') }*/}
+                    {/*        />*/}
+                    {/*        <SideArrow style={ styles.icons }*/}
+                    {/*                   className="icon-right"*/}
+                    {/*                   onClick={ ()=>handleShift('f') }*/}
+                    {/*        />*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
 
                 { mode === 'days'
 
-                    ? <DayMode month={ month } setMonth={setMonth} date={props.date} />
+                    ? <DayMode month={ month }
+                               setMonth={setMonth}
+                               date={props.date}
+                               year={ year }
+                    />
                     : mode === 'years'
 
-                        ? <YearMode year={ year } onChange={handleYearChange} buttons={props.buttons} />
+                        ? <YearMode year={ year }
+                                    month={ month }
+                                    onChange={handleYearChange}
+                                    buttons={props.buttons}
+                                    setMode={setMode}
+                        />
                         : <div className="years">
                             Years
                         </div>

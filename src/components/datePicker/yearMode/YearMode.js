@@ -2,11 +2,13 @@ import {daysInMonth, getMonthStartDay, range} from "../utilities.js";
 import {useEffect, useRef, useState} from "react";
 import {useTheme} from "../../../ThemeContext.js";
 import Button from "../../button/Button.js";
+import {ReactComponent as Arrow} from "../icons/right.svg";
+import {ReactComponent as SideArrow} from "../icons/sideArrow.svg";
 
 function YearMode(props) {
     const [colors] = useTheme();
     const cells = range( props.year-6 , props.year+8 )
-    const [ selected,setSelected ] = useState(0);
+    const [ selectedYear,setSelectedYear ] = useState();
     const styles = {
         cell:{
             color : colors.onSurfaceVariant
@@ -20,14 +22,34 @@ function YearMode(props) {
         }
     }
 
-    return (
+    return (<>
+        <div className="localSelectionRow grid-order">
+            <div className="date"
+                 onClick={ ()=>props.setMode('days') }
+            >
+                { props.month },{ selectedYear || props.year }
+                <Arrow className='icon-down'
+                       style={ styles.icons }
+                />
+            </div>
+            <div className="icons">
+                <SideArrow style={ styles.icons }
+                           className="icon-left"
+                           // onClick={ ()=>handleShift('b') }
+                />
+                <SideArrow style={ styles.icons }
+                           className="icon-right"
+                           // onClick={ ()=>handleShift('f') }
+                />
+            </div>
+        </div>
         <div className="years" style={{}}>
             <div className="years-grid">
                 { cells.map( x=>
                     <div className={(x === props.year) ? 'now cell': 'cell'}
-                         onClick={ ()=>setSelected(x) }
+                         onClick={ ()=>setSelectedYear(x) }
                          key={x}
-                         style={ x === selected
+                         style={ x === selectedYear
                                     ? styles.selected
                                     : x === props.year
                                         ? styles.now
@@ -49,13 +71,13 @@ function YearMode(props) {
                         Cancel
                     </Button>
                     <Button type={ 'text' }
-                            click={ ()=>props.onChange(selected)}
+                            click={ ()=>props.onChange(selectedYear)}
                     >
                         OK
                     </Button>
                 </div>
             </div>
         </div>
-    )
+    </>)
 }
 export default YearMode;

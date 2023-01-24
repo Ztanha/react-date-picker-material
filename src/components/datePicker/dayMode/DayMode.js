@@ -3,6 +3,8 @@ import {daysInMonth, getMonthStartDay} from "../utilities.js";
 
 import {useEffect, useRef, useState} from "react";
 import Button from "../../button/Button.js";
+import {ReactComponent as Arrow} from "../icons/right.svg";
+import {ReactComponent as SideArrow} from "../icons/sideArrow.svg";
 
 
 const DayMode = props=>{
@@ -44,7 +46,27 @@ const DayMode = props=>{
         setDayPointer(date.current.getDate());
 
     },[props.date,setCalendar,setDayPointer,date])
-    return (
+    return (<>
+        <div className="localSelectionRow grid-order">
+            <div className="date"
+                 onClick={ ()=>props.setMode('days') }
+            >
+                { props.month },{ props.year }
+                <Arrow className='icon-down'
+                       style={ styles.icons }
+                />
+            </div>
+            <div className="icons">
+                <SideArrow style={ styles.icons }
+                           className="icon-left"
+                    // onClick={ ()=>handleShift('b') }
+                />
+                <SideArrow style={ styles.icons }
+                           className="icon-right"
+                    // onClick={ ()=>handleShift('f') }
+                />
+            </div>
+        </div>
             <div className="days" style={styles.calGrids}>
                 <div className="days-grid">
                     { weekday.map((x,index)=>
@@ -84,6 +106,6 @@ const DayMode = props=>{
                     </div>
                 </div>
             </div>
-        )
+       </>)
 }
 export default DayMode;
