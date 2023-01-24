@@ -81,8 +81,8 @@ const DayMode = props=>{
     useEffect(()=>{
 
         date.current = new Date(props.date)
-        setRefMonth(props.month);
-        setRefYear(props.year);
+        setRefMonth(date.current.getMonth());
+        setRefYear(date.current.getFullYear());
         reloadCells(props.date)
         setDayPointer(date.current.getDate());
 
@@ -122,11 +122,13 @@ const DayMode = props=>{
                         <div key={index}
                              onClick={()=>setSelectedDay(x)}
                              className='cell'
-                             style={ x === dayPointer
-                                 ? styles.today
-                                 : ( x === selectedDay)
-                                     ? styles.selectedCell
-                                     : {}
+                             style={ refMonth === props.month
+                                 ? x === dayPointer
+                                     ? styles.today
+                                     : ( x === selectedDay )
+                                         ? styles.selectedCell
+                                         : {}
+                                 : {}
                              }
                         >
                             {x}
