@@ -14,6 +14,7 @@ const DayMode = props=>{
     const [ dayPointer,setDayPointer ] = useState();
     const [ selectedDay,setSelectedDay ] = useState();
     const date = useRef(new Date());
+    const refMonth = useRef(0); // in form of timeStamp without day
     const styles={
         calGrids:{
             color:colors.onSurface,
@@ -32,23 +33,41 @@ const DayMode = props=>{
             fill:colors.onSurfaceVariant
         }
     }
-    function reloadCells(daysInMonth,firstDay) {
+    function reloadCells( monthTimeStamp ) {
         let calendar = [];
-        for(let i = 1; i <= daysInMonth; i++) {
+        const days = daysInMonth( monthTimeStamp );
+        const firstDay = getMonthStartDay( monthTimeStamp )
+        for(let i = 1; i <= days; i++) {
             calendar.push(i);
         }
         for(let j = 0; j < firstDay; j++) {
             calendar.unshift(" ");
         }
-        return calendar
+        setCells(calendar);
     }
+    function changeMonth(op) {
+        let tempDate = new Date(refMonth.current)
+        const month = tempDate.getMonth();
+        let newMonth;
+        if( op === 'inc') {
+            newMonth = month+1
+        }else{
+            newMonth = month-1
+        }
+        let dd = new Date(tempDate.getFullYear(),newMonth,0).getTime();
+        console.log('dd:',dd)
+        refMonth.current = dd;
+    }
+    console.log(refMonth.current)
     useEffect(()=>{
 
         date.current = new Date(props.date)
-        setCells( reloadCells(daysInMonth(props.date),getMonthStartDay(props.date)) )
+        refMonth.current = props.date;
+        reloadCells(props.date)
         setDayPointer(date.current.getDate());
 
     },[props.date,setCells,setDayPointer,date])
+
     return (<>
         <div className="localSelectionRow grid-order">
             <div className="date"
@@ -62,11 +81,11 @@ const DayMode = props=>{
             <div className="icons">
                 <SideArrow style={ styles.icons }
                            className="icon-left"
-                    // onClick={ ()=>handleShift('b') }
+                           onClick={ ()=>changeMonth('dec') }
                 />
                 <SideArrow style={ styles.icons }
                            className="icon-right"
-                    // onClick={ ()=>handleShift('f') }
+                           onClick={ ()=>changeMonth('inc') }
                 />
             </div>
         </div>

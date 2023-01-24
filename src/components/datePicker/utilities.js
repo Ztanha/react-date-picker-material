@@ -22,8 +22,9 @@ function hexToRGB(hex){
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : null;
 }
-function monthName(number) {
+function monthName(timeStamp) {
     const months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    return months[number]
+    let date = new Date(timeStamp)
+    return months[date.getMonth()%11]
 }
 export {daysInMonth,getMonthStartDay,range,hexToRGB,monthName}
