@@ -43,27 +43,14 @@ function ActualDatePicker(props) {
         },
         icons:{
             fill:colors.onSurfaceVariant
-        },
-        calGrids:{
-            color:colors.onSurface,
-        },
-        calHeader:{
-            color:colors.onSurface,
-        },
-        today:{
-            backgroundColor: colors.primary,
-            color:colors.onPrimary,
-        },
-        selectedCell:{
-            border: `1px solid ${colors.primary}`,
         }
     }
     useEffect(() => {
         const tempDate = new Date(props.date);
         setMonth( tempDate.getMonth() );
         setYear( tempDate.getFullYear() );
-
     }, [ props.date,setMonth,setYear ])
+
     return (
         <div className='DatePicker'
              style={{ ...styles.datePicker,...props.style }}
@@ -73,14 +60,16 @@ function ActualDatePicker(props) {
             >
                 <div className="calendar">
                     <div className="calendar-header" >
-                        <label>{ props.title || 'Select date' }</label>
+                        <label>
+                            { props.title || 'Select date' }
+                        </label>
                         <div className="header-date grid-order"
-                             style={styles.calHeader}
+                             style={ styles.calHeader }
                         >
                             { weekday[ date?.current.getDay() ] },
                             { months[ date?.current.getMonth() ].slice(0,3) }
                             { date?.current.getDate() }
-                            <Pencil style={styles.icons}/>
+                            <Pencil style={ styles.icons }/>
                         </div>
                     </div>
                     <div className="line"
@@ -92,7 +81,7 @@ function ActualDatePicker(props) {
                         >
                             { months[ date?.current.getMonth() ] },{ date?.current.getFullYear() }
                             <Arrow className='icon-down'
-                                   style={styles.icons}
+                                   style={ styles.icons }
                             />
                         </div>
                         <div className="icons">
