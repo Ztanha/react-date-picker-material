@@ -20,15 +20,6 @@ function YearMode(props) {
         }
     }
 
-    // function handleYearChange(year){
-    //
-    //     const tempDate = new Date(props.date);
-    //     const month = tempDate.getMonth();
-    //     const day =tempDate.getDate();
-    //
-    //     props.setDate(new Date(year,month,day))
-    // }
-
     return (
         <div className="years" style={{}}>
             <div className="years-grid">
