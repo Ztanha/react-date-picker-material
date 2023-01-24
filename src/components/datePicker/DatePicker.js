@@ -88,6 +88,9 @@ function ActualDatePicker(props) {
                 }
                 </div>
                 <div className="actions">
+                    { props.btttons.map(x=>
+                        <Button/>
+                    )}
                 </div>
             </Modal>
         </div>
