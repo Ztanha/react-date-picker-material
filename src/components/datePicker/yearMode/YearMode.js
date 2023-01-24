@@ -3,9 +3,10 @@ import {useEffect, useRef, useState} from "react";
 import {useTheme} from "../../../ThemeContext.js";
 
 function YearMode(props) {
-    const year = useRef(0);
-    const [colors] =useTheme();
-    const [ cells,setCells ] = useState([]);
+    const year = useRef();
+    const [colors] = useTheme();
+    const thisYear = new Date().getFullYear();
+    const cells = range(thisYear-6,thisYear+8)
     const [ selected,setSelected ] = useState(0);
     const styles = {
         now:{
@@ -27,7 +28,6 @@ function YearMode(props) {
     }
     useEffect(()=>{
         year.current = new Date(props.date).getFullYear();
-        setCells(range(year.current-6,year.current+8));
     },[ props.date,year ])
 
     console.log(selected)
@@ -39,7 +39,7 @@ function YearMode(props) {
                          onClick={ ()=>handleYearChange(x) }
                          style={ x === selected
                                     ? styles.selected
-                                    : x === year.current
+                                    : x === thisYear
                                         ? styles.now
                                         : {}
                                 }
