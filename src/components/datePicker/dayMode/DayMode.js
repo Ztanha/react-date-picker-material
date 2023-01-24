@@ -47,6 +47,13 @@ const DayMode = props=>{
         setCells(calendar);
     }
 
+    function handleSave() {
+        props.setDate(new Date(refYear,refMonth,selectedDay).getTime())
+    }
+    function handleSelect(day) {
+
+    }
+
     function resetRefMonth( newValue ) {
         let value;
 
@@ -134,7 +141,7 @@ const DayMode = props=>{
                             Cancel
                         </Button>
                         <Button type={ 'text' }
-                                // click={ ()=>props.onChange(selected)}
+                                click={ ()=>handleSave }
                         >
                             OK
                         </Button>
