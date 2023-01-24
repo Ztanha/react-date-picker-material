@@ -48,7 +48,9 @@ function ActualDatePicker(props) {
                 <div className="calendar">
                     <div className="calendar-header" >
                         <label>{ props.title || 'Select date' }</label>
-                        <div className="header-date grid-order" style={styles.calHeader} >
+                        <div className="header-date grid-order"
+                             style={styles.calHeader}
+                        >
                             { weekday[ date?.current.getDay() ] },
                             { month[ date?.current.getMonth() ].slice(0,3) }
                             { date?.current.getDate() }
@@ -57,13 +59,21 @@ function ActualDatePicker(props) {
                     </div>
                     <div className="line" style={{ backgroundColor:colors.outline }}/>
                     <div className="localSelectionRow grid-order">
-                        <div className="date" onClick={ ()=>setMode(mode === 'years' ? 'days': 'years' ) }>
+                        <div className="date"
+                             onClick={ ()=>setMode(mode === 'years' ? 'days': 'years' ) }
+                        >
                             { month[ date?.current.getMonth() ] },{ date?.current.getFullYear() }
-                            <Arrow className='icon-down' style={styles.icons}/>
+                            <Arrow className='icon-down'
+                                   style={styles.icons}
+                            />
                         </div>
                         <div className="icons">
-                            <SideArrow style={styles.icons} className="icon-left"/>
-                            <SideArrow style={styles.icons} className="icon-right"/>
+                            <SideArrow style={styles.icons}
+                                       className="icon-left"
+                            />
+                            <SideArrow style={styles.icons}
+                                       className="icon-right"
+                            />
                         </div>
                     </div>
 

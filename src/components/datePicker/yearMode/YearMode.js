@@ -32,6 +32,7 @@ function YearMode(props) {
                 { cells.map( x=>
                     <div className='cell'
                          onClick={ ()=>handleYearChange(x) }
+                         key={x}
                          style={ x === selected
                                     ? styles.selected
                                     : x === thisYear

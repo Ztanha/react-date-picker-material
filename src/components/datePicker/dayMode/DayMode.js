@@ -35,7 +35,7 @@ const DayMode = props=>{
         }
     }
     function makeCalendar(daysInMonth,firstDay) {
-        let calendar = [...weekday];
+        let calendar = [];
         for(let i = 1; i <= daysInMonth; i++) {
             calendar.push(i);
         }
@@ -54,10 +54,15 @@ const DayMode = props=>{
     return (
             <div className="days" style={styles.calGrids}>
                 <div className="days-grid">
+                    { weekday.map((x,index)=>
+                        <div key={index} className='first-row cell'>
+                            {x}
+                        </div>
+                    )}
                     { calendar?.map((x,index)=>
                         <div key={index}
                              onClick={()=>setSelectedPointer(x)}
-                             className={(index < 7)? 'first-row cell' : 'cell'}
+                             className='cell'
                              style={ x === dayPointer
                                  ? styles.today
                                  : ( x === selectedPointer)

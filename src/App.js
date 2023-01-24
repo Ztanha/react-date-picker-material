@@ -6,7 +6,10 @@ function App() {
   return (
     <div className="App">
         salam
-      <DatePicker date={ date } show={ true } setDate={ setDate }/>
+      <DatePicker date={ date }
+                  show={ true }
+                  setDate={ setDate }
+      />
     </div>
   );
 }
