@@ -15,8 +15,8 @@ function ActualDatePicker(props) {
     const months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sau"];
     const [ mode,setMode ]=useState('days')
-    const [ month,setMonth ]=useState();
-    const [ year,setYear ]=useState();
+    const [ month,setMonth ]=useState(0);
+    const [ year,setYear ]=useState(0);
     const [colors]= useTheme();
     const date = useRef(new Date());
 
@@ -59,8 +59,11 @@ function ActualDatePicker(props) {
         }
     }
     useEffect(() => {
-        setMonth()
-    }, [props.date,setMonth,setYear,month,year])
+        const tempDate = new Date(props.date);
+        setMonth( tempDate.getMonth() );
+        setYear( tempDate.getFullYear() );
+
+    }, [ props.date,setMonth,setYear ])
     return (
         <div className='DatePicker'
              style={{ ...styles.datePicker,...props.style }}
@@ -106,11 +109,10 @@ function ActualDatePicker(props) {
 
                 { mode === 'days'
 
-                    ? <DayMode month={ month } />
-
+                    ? <DayMode month={ month } setMonth={setMonth} />
                     : mode === 'years'
 
-                        ? <YearMode year={ year } />
+                        ? <YearMode year={ year } setYear={setYear} />
                         : <div className="years">
                             Years
                         </div>

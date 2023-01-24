@@ -5,7 +5,7 @@ import {useTheme} from "../../../ThemeContext.js";
 function YearMode(props) {
     const [colors] = useTheme();
     const thisYear = new Date().getFullYear();
-    const cells = range(thisYear-6,thisYear+8)
+    const cells = range( props.year-6 , props.year+8 )
     const [ selected,setSelected ] = useState(0);
     const styles = {
         now:{
@@ -35,7 +35,7 @@ function YearMode(props) {
                          key={x}
                          style={ x === selected
                                     ? styles.selected
-                                    : x === thisYear
+                                    : x === props.year
                                         ? styles.now
                                         : {}
                         }
