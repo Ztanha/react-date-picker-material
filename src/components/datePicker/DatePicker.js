@@ -75,22 +75,22 @@ function ActualDatePicker(props) {
                 { mode === 'days'
 
                     ? <DayMode month={ month }
-                               setMonth={setMonth}
-                               setDate={props.setDate}
-                               date={props.date}
+                               setMonth={ setMonth }
+                               setDate={ props.setDate }
+                               date={ props.date }
                                year={ year }
-                               setMode={setMode}
-                               onChange={handleDayChange}
-                               hide={props.hide}
+                               setMode={ setMode }
+                               onChange={ handleDayChange }
+                               hide={ props.hide }
                     />
                     : mode === 'years'
 
                         ? <YearMode year={ year }
                                     month={ month }
-                                    onChange={handleYearChange}
-                                    buttons={props.buttons}
-                                    setMode={setMode}
-                                    hide={props.hide}
+                                    onChange={ handleYearChange }
+                                    buttons={ props.buttons }
+                                    setMode={ setMode }
+                                    hide={ props.hide }
                         />
                         : <div className="years">
                             Years
