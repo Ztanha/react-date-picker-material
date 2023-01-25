@@ -47,9 +47,6 @@ const DayMode = props=>{
         setCells(calendar);
     }
 
-    function handleSave() {
-
-    }
     function handleSelect(day) {
         setSelectedDay(new Date(refYear,refMonth,day).getTime())
     }
