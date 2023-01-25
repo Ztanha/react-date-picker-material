@@ -31,4 +31,4 @@ function getTimestampWithoutTime(timestamp) {
     date.setHours(0, 0, 0, 0);
     return date.getTime();
 }
-export {daysInMonth,getMonthStartDay,range,hexToRGB,monthName}
+export {daysInMonth,getMonthStartDay,range,hexToRGB,monthName,getTimestampWithoutTime}
