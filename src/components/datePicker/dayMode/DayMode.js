@@ -124,7 +124,9 @@ const DayMode = props=>{
                              className='cell'
                              style={ (refMonth === props.month && x === dayPointer)
                                      ? styles.today
-                                     : (x === new Date( selectedDay ).getDate() && refMonth === new Date( selectedDay ).getMonth())
+                                     : (x === new Date( selectedDay ).getDate()
+                                     && refMonth === new Date( selectedDay ).getMonth()
+                                     && refYear === new Date( selectedDay ).getFullYear())
                                              ? styles.selectedCell
                                              : {}
                              }
