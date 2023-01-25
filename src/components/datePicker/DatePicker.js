@@ -71,6 +71,7 @@ function ActualDatePicker(props) {
 
                     ? <DayMode month={ month }
                                setMonth={setMonth}
+                               setDate={props.setDate}
                                date={props.date}
                                year={ year }
                                setMode={setMode}

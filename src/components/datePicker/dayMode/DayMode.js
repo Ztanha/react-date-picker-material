@@ -48,7 +48,7 @@ const DayMode = props=>{
     }
 
     function handleSave() {
-        props.setDate(new Date(refYear,refMonth,selectedDay).getTime())
+
     }
     function handleSelect(day) {
         setSelectedDay(new Date(refYear,refMonth,day).getTime())
@@ -118,8 +118,8 @@ const DayMode = props=>{
                             {x}
                         </div>
                     )}
-                    { cells?.map((x,index)=>
-                        <div key={index}
+                    { cells?.map(( x,index )=>
+                        <div key={ index }
                              onClick={()=>handleSelect(x)}
                              className='cell'
                              style={ (refMonth === props.month && x === dayPointer)
@@ -141,7 +141,7 @@ const DayMode = props=>{
                             Cancel
                         </Button>
                         <Button type={ 'text' }
-                                click={ ()=>handleSave }
+                                click={ ()=>props.setDate(selectedDay) }
                         >
                             OK
                         </Button>
