@@ -1,8 +1,11 @@
 import {monthName} from "./utilities.js";
 import {ReactComponent as Arrow} from "../icons/right.svg";
 import {ReactComponent as SideArrow} from "../icons/sideArrow.svg";
+import {useTheme} from "../../ThemeContext.js";
+
 
 function HeaderDate( props ){
+    const [ colors ]= useTheme();
     const styles={
         icons:{
             fill:colors.onSurfaceVariant
@@ -14,10 +17,10 @@ function HeaderDate( props ){
     return (
         <>
             <div className="date"
-                 onClick={ ()=>props.setMode('years') }
+                 onClick={ ()=>props.onClickDown }
                  style={ styles.smallDate }
             >
-                { monthName(refMonth)},{ refYear }
+                { monthName(props.month)},{ props.year }
                 <Arrow className='icon-down'
                        style={ styles.icons }
                 />
