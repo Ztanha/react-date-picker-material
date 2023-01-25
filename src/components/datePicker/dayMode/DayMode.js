@@ -1,5 +1,5 @@
 import {useTheme} from "../../../ThemeContext.js";
-import {daysInMonth, getMonthStartDay, monthName} from "../utilities.js";
+import {daysInMonth, getMonthStartDay, getTimestampWithoutTime, monthName} from "../utilities.js";
 
 import {useEffect, useRef, useState} from "react";
 import Button from "../../button/Button.js";
@@ -78,13 +78,12 @@ const DayMode = props=>{
         const t = new Date(props.date);
         const m = t.getMonth();
         const y = t.getFullYear();
-        const d = t.getDate();
-        date.current = new Date(y,m,0).getTime()
+        date.current = getTimestampWithoutTime(props.date);
         setRefMonth( m );
         setRefYear( y );
         reloadCells( props.date )
 
-    },[props.date,setCells])
+    },[props.date,setCells,date])
 
     console.log(props.date,date.current)
     return (<>
