@@ -4,6 +4,7 @@ import {daysInMonth, getMonthStartDay, getTimestampWithoutTime, monthName} from 
 import {useEffect, useRef, useState} from "react";
 import Button from "../../button/Button.js";
 import HeaderDate from "../HeaderDate.js";
+import Actions from "../Actions.js";
 
 
 
@@ -115,20 +116,9 @@ const DayMode = props=>{
                         </div>
                     ) }
                 </div>
-                <div className="actions">
-                    <div className='btns-container'>
-                        <Button type={ 'text' }
-                                click={ props.hide }
-                        >
-                            Cancel
-                        </Button>
-                        <Button type={ 'text' }
-                                click={ ()=>props.setDate(selectedDay) }
-                        >
-                            OK
-                        </Button>
-                    </div>
-                </div>
+                <Actions onClickLeftOne={ props.hide }
+                         onClickRightOne={ ()=>props.setDate(selectedDay) }
+                />
             </div>
        </>)
 }
