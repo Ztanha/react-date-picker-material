@@ -1,6 +1,6 @@
 import Button from "../button/Button.js";
 
-function Actions() {
+function Actions(props) {
     return (
         <div className="actions">
             <div className='btns-container'>
