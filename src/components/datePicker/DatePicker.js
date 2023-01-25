@@ -30,9 +30,9 @@ function ActualDatePicker(props) {
     }
     const styles={
         datePicker:{
-            color:colors.onSurfaceVariant,
-            backgroundColor:colors.surface3,
-            fontFamily:'Roboto'
+            color:colors.onSurface,
+            background : colors.surface3,
+            fontFamily:'Roboto,-apple-system, Ubuntu, sans-serif',
         },
 
     }

@@ -18,8 +18,8 @@ function Modal( props ) {
                 />
                 <div
                     id='modal-container'
-                    style={{ background : colors.surface3,
-                             color : colors.onSurface,
+                    style={{
+                             // color : colors.onSurface,
                              width:props.width+'px'
                     }}
                 >
