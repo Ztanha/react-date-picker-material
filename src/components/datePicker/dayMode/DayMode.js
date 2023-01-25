@@ -61,6 +61,11 @@ const DayMode = props=>{
         }
         setRefMonth(value);
     }
+    function handleSave(){
+        props.setDate(selectedDay)
+        alert('Time Saved!')
+        props.hide();
+    }
 
     useEffect(()=>{
         reloadCells( new Date(refYear,refMonth+1,0).getTime() )
@@ -112,7 +117,7 @@ const DayMode = props=>{
                     ) }
                 </div>
                 <Actions onClickLeftOne={ props.hide }
-                         onClickRightOne={ ()=>props.setDate(selectedDay) }
+                         onClickRightOne={ handleSave }
                 />
             </div>
        </>)
