@@ -5,7 +5,6 @@ import {ReactComponent as Pencil} from "./icons/pencil.svg";
 import {ThemeProvider, useTheme} from "../../ThemeContext.js";
 import DayMode from "./dayMode/DayMode.js";
 import YearMode from "./yearMode/YearMode.js";
-import Button from "../button/Button.js";
 import {monthName} from "./utilities.js";
 const DatePicker = props=><ThemeProvider><ActualDatePicker {...props}/></ThemeProvider>;
 
