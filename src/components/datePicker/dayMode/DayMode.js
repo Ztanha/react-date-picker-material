@@ -33,15 +33,14 @@ const DayMode = props=>{
             fill:colors.onSurfaceVariant
         }
     }
-    function reloadCells( monthTimeStamp ) {
+    function reloadCells( timestamp ) {
         let calendar = [];
-        const year = new Date(monthTimeStamp).getFullYear()
-        const month = new Date(monthTimeStamp).getMonth()
-        const days = daysInMonth( monthTimeStamp );
-        const firstDay = getMonthStartDay( monthTimeStamp )
+        let date = new Date( timestamp )
+        const days = daysInMonth( timestamp );
+        const firstDay = getMonthStartDay( timestamp )
 
         for(let i = 1; i <= days; i++) {
-            calendar.push( new Date(year,month,i).getTime() );
+            calendar.push( date.setDate(i) );
         }
         for(let j = 0; j < firstDay; j++) {
             calendar.unshift(" ");
