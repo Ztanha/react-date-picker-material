@@ -75,8 +75,8 @@ const DayMode = props=>{
     }
 
     useEffect(()=>{
-        reloadCells( new Date(props.year,refMonth+1,0).getTime() )
-    },[refMonth,setCells])
+        reloadCells( new Date(refYear,refMonth+1,0).getTime() )
+    },[refMonth,setCells,refYear])
 
     useEffect(()=>{
 
