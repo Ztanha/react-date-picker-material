@@ -5,6 +5,9 @@ import React from "react";
 
 function Modal( props ) {
     const [colors]=useTheme();
+    const internalStyle={
+        width:props.width+'px'
+    }
     return (
         props.show ? (
             <div className='modal-component'>
@@ -18,10 +21,7 @@ function Modal( props ) {
                 />
                 <div
                     id='modal-container'
-                    style={{
-                             // color : colors.onSurface,
-                             width:props.width+'px'
-                    }}
+                    style={{...internalStyle,...props.style}}
                 >
                     { props.children }
 

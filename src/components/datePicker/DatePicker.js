@@ -50,6 +50,7 @@ function ActualDatePicker(props) {
         >
             <Modal show={ props.show }
                    hide={ props.hide }
+                   style={ props.style }
             >
                 <div className="calendar">
                     <div className="calendar-header" >

@@ -14,7 +14,8 @@ function App() {
                   show={ show }
                   hide={ ()=>setShow(false)}
                   setDate={ setDate }
-                  title={ 'salam' }
+                  // title={ 'Pick up a date' }
+                  style={{ fontFamily:'Roboto',width:'100px' }}
       />
     </div>
   );
