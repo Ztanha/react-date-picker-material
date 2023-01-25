@@ -41,7 +41,8 @@ function ActualDatePicker(props) {
         const tempDate = new Date(props.date);
         setMonth( tempDate.getMonth() );
         setYear( tempDate.getFullYear() );
-    }, [ props.date,setMonth,setYear ])
+        date.current = tempDate;
+    }, [ props.date,setMonth,setYear,date ])
 
     return (
         <div className='DatePicker'
@@ -61,6 +62,7 @@ function ActualDatePicker(props) {
                             { weekday[ date?.current.getDay() ] },
                             { monthName( date?.current.getMonth()).slice(0,3) }
                             { date?.current.getDate() }
+
                             <Pencil style={ styles.icons }/>
                         </div>
                     </div>
