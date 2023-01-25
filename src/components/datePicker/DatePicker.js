@@ -36,7 +36,7 @@ function ActualDatePicker(props) {
         },
         title:{
             color:colors.onSurfaceVariant,
-        }
+        },
 
     }
     useEffect(() => {
@@ -67,7 +67,7 @@ function ActualDatePicker(props) {
                         </div>
                     </div>
                     <div className="line"
-                         style={{ backgroundColor:colors.outline }}
+                         style={{ backgroundColor:colors.outlineVariant }}
                     />
 
                 { mode === 'days'

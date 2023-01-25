@@ -23,6 +23,9 @@ function YearMode(props) {
         },
         icons:{
             fill:colors.onSurfaceVariant
+        },
+        smallDate:{
+            color:colors.onSurfaceVariant
         }
     }
     function reloadCells(referenceYear) {
@@ -39,6 +42,7 @@ function YearMode(props) {
         <div className="localSelectionRow grid-order">
             <div className="date"
                  onClick={ ()=>props.setMode('days') }
+                 style={styles.smallDate}
             >
                 { monthName(props.month) },{ selectedYear || props.year }
                 <Arrow className='icon-down'
@@ -74,7 +78,7 @@ function YearMode(props) {
                 )}
             </div>
             <div className="line"
-                 style={{ backgroundColor:colors.outline }}
+                 style={{ backgroundColor:colors.outlineVariant }}
             />
             <div className="actions">
                 <div className='btns-container'>

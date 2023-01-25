@@ -31,6 +31,9 @@ const DayMode = props=>{
         },
         icons:{
             fill:colors.onSurfaceVariant
+        },
+        smallDate:{
+            color:colors.onSurfaceVariant
         }
     }
     function reloadCells( timestamp ) {
@@ -89,6 +92,7 @@ const DayMode = props=>{
         <div className="localSelectionRow grid-order">
             <div className="date"
                  onClick={ ()=>props.setMode('years') }
+                 style={ styles.smallDate }
             >
                 { monthName(refMonth)},{ refYear }
                 <Arrow className='icon-down'
