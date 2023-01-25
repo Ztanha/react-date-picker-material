@@ -11,7 +11,6 @@ const DayMode = props=>{
     const [ colors ]= useTheme();
     const weekday= ["Su","Mo","Tu","We","Th","Fr","Sa"];
     const [ cells,setCells] = useState();
-    const [ dayPointer,setDayPointer ] = useState();
     const [ selectedDay,setSelectedDay ] = useState();
     const date = useRef(new Date());
     const [ refMonth,setRefMonth ] = useState();
@@ -80,10 +79,10 @@ const DayMode = props=>{
         setRefMonth( date.current.getMonth() );
         setRefYear( date.current.getFullYear() );
         reloadCells( props.date )
-        setDayPointer( date.current.getDate() );
 
-    },[props.date,setCells,setDayPointer,date])
+    },[props.date,setCells])
 
+    console.log(props.date)
     return (<>
         <div className="localSelectionRow grid-order">
             <div className="date"
@@ -118,7 +117,8 @@ const DayMode = props=>{
                         <div key={ index }
                              onClick={()=>setSelectedDay( x )}
                              className='cell'
-                             style={ (x === dayPointer)
+                             id={x}
+                             style={ (x === props.date)
                                      ? styles.today
                                      : ( x === selectedDay )
                                              ? styles.selectedCell
