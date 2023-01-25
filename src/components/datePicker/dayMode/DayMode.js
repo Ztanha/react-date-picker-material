@@ -138,7 +138,7 @@ const DayMode = props=>{
                 <div className="actions">
                     <div className='btns-container'>
                         <Button type={ 'text' }
-                                click={ props.hide() }
+                                click={ props.hide }
                         >
                             Cancel
                         </Button>
