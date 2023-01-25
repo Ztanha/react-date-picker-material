@@ -75,14 +75,18 @@ const DayMode = props=>{
 
     useEffect(()=>{
 
-        date.current = new Date(props.date)
-        setRefMonth( date.current.getMonth() );
-        setRefYear( date.current.getFullYear() );
+        const t = new Date(props.date);
+        const m = t.getMonth();
+        const y = t.getFullYear();
+        const d = t.getDate();
+        date.current = new Date(y,m,0).getTime()
+        setRefMonth( m );
+        setRefYear( y );
         reloadCells( props.date )
 
     },[props.date,setCells])
 
-    console.log(props.date)
+    console.log(props.date,date.current)
     return (<>
         <div className="localSelectionRow grid-order">
             <div className="date"
@@ -107,7 +111,7 @@ const DayMode = props=>{
             <div className="days" style={styles.calGrids}>
                 <div className="days-grid">
                     { weekday.map((x,index)=>
-                        <div key={index}
+                        <div key={ index }
                              className='first-row cell'
                         >
                             {x}
@@ -118,7 +122,7 @@ const DayMode = props=>{
                              onClick={()=>setSelectedDay( x )}
                              className='cell'
                              id={x}
-                             style={ (x === props.date)
+                             style={ (x === date.current)
                                      ? styles.today
                                      : ( x === selectedDay )
                                              ? styles.selectedCell

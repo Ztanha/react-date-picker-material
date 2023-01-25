@@ -26,4 +26,9 @@ function monthName(number) {
     const months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     return months[number]
 }
+function getTimestampWithoutTime(timestamp) {
+    let date = new Date(timestamp);
+    date.setHours(0, 0, 0, 0);
+    return date.getTime();
+}
 export {daysInMonth,getMonthStartDay,range,hexToRGB,monthName}
