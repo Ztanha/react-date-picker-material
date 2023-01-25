@@ -36,10 +36,13 @@ const DayMode = props=>{
     }
     function reloadCells( monthTimeStamp ) {
         let calendar = [];
+        const year = new Date(monthTimeStamp).getFullYear()
+        const month = new Date(monthTimeStamp).getMonth()
         const days = daysInMonth( monthTimeStamp );
         const firstDay = getMonthStartDay( monthTimeStamp )
+
         for(let i = 1; i <= days; i++) {
-            calendar.push(i);
+            calendar.push( new Date(year,month,i).getTime() );
         }
         for(let j = 0; j < firstDay; j++) {
             calendar.unshift(" ");
@@ -117,18 +120,16 @@ const DayMode = props=>{
                     )}
                     { cells?.map(( x,index )=>
                         <div key={ index }
-                             onClick={()=>handleSelect(x)}
+                             onClick={()=>handleSelect( x )}
                              className='cell'
-                             style={ (refMonth === props.month && x === dayPointer)
+                             style={ (x === dayPointer)
                                      ? styles.today
-                                     : (x === new Date( selectedDay ).getDate()
-                                     && refMonth === new Date( selectedDay ).getMonth()
-                                     && refYear === new Date( selectedDay ).getFullYear())
+                                     : ( x === selectedDay )
                                              ? styles.selectedCell
                                              : {}
                              }
                         >
-                            {x}
+                            {new Date(x).getDate() || ''}
                         </div>
                     ) }
                 </div>
