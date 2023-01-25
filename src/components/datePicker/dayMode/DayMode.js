@@ -51,7 +51,7 @@ const DayMode = props=>{
         props.setDate(new Date(refYear,refMonth,selectedDay).getTime())
     }
     function handleSelect(day) {
-
+        setSelectedDay(new Date(refYear,refMonth,day).getTime())
     }
 
     function resetRefMonth( newValue ) {
@@ -75,16 +75,16 @@ const DayMode = props=>{
     }
 
     useEffect(()=>{
-        reloadCells(new Date(props.year,refMonth+1,0).getTime())
+        reloadCells( new Date(props.year,refMonth+1,0).getTime() )
     },[refMonth,setCells])
 
     useEffect(()=>{
 
         date.current = new Date(props.date)
-        setRefMonth(date.current.getMonth());
-        setRefYear(date.current.getFullYear());
-        reloadCells(props.date)
-        setDayPointer(date.current.getDate());
+        setRefMonth( date.current.getMonth() );
+        setRefYear( date.current.getFullYear() );
+        reloadCells( props.date )
+        setDayPointer( date.current.getDate() );
 
     },[props.date,setCells,setDayPointer,date])
 
@@ -120,15 +120,13 @@ const DayMode = props=>{
                     )}
                     { cells?.map((x,index)=>
                         <div key={index}
-                             onClick={()=>setSelectedDay(x)}
+                             onClick={()=>handleSelect(x)}
                              className='cell'
-                             style={ refMonth === props.month
-                                 ? x === dayPointer
+                             style={ (refMonth === props.month && x === dayPointer)
                                      ? styles.today
-                                     : ( x === selectedDay )
-                                         ? styles.selectedCell
-                                         : {}
-                                 : {}
+                                     : (x === new Date( selectedDay ).getDate() && refMonth === new Date( selectedDay ).getMonth())
+                                             ? styles.selectedCell
+                                             : {}
                              }
                         >
                             {x}
