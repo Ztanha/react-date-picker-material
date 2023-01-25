@@ -70,7 +70,7 @@ const DayMode = props=>{
 
     useEffect(()=>{
         reloadCells( new Date(refYear,refMonth+1,0).getTime() )
-    },[refMonth,setCells,refYear])
+    },[ refMonth,setCells,refYear ])
 
     useEffect(()=>{
 
@@ -82,7 +82,7 @@ const DayMode = props=>{
         setRefYear( y );
         reloadCells( props.date )
 
-    },[props.date,setCells,date])
+    },[ props.date,date,setRefMonth,setRefYear ])
 
     console.log(props.date,date.current)
     return (<>
