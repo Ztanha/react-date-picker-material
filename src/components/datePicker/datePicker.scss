@@ -19,10 +19,11 @@
   .header-date{
     @include font-headline-large;
     padding:.5em 0;
-    align-self: center;
+    align-items: center;
     svg{
       padding-right: 8px;
-      width: 24px;
+      width: .7em;
+      justify-self: center;
 
     }
   }
