@@ -5,6 +5,7 @@ import Button from "../../button/Button.js";
 import {ReactComponent as Arrow} from "../icons/right.svg";
 import {ReactComponent as SideArrow} from "../icons/sideArrow.svg";
 import HeaderDate from "../HeaderDate.js";
+import Actions from "../Actions.js";
 
 function YearMode(props) {
     const [colors] = useTheme();
@@ -60,20 +61,9 @@ function YearMode(props) {
             <div className="line"
                  style={{ backgroundColor:colors.outlineVariant }}
             />
-            <div className="actions">
-                <div className='btns-container'>
-                    <Button type={ 'text' }
-                            click={ props.hide }
-                    >
-                        Cancel
-                    </Button>
-                    <Button type={ 'text' }
-                            click={ ()=>props.onChange(selectedYear)}
-                    >
-                        OK
-                    </Button>
-                </div>
-            </div>
+            <Actions onClickLeftOne={ props.hide }
+                     onClickRightOne={ ()=>props.onChange(selectedYear) }
+             />
         </div>
     </>)
 }
