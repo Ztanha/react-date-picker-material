@@ -98,8 +98,8 @@ const DayMode = props=>{
                     )}
                     { cells?.map(( x,index )=>
                         <div key={ index }
-                             onClick={()=>setSelectedDay( x )}
-                             className='cell'
+                             onClick={()=>setSelectedDay( x ) }
+                             className={ (x !==" ") ? 'cell' :'empty-cell' }
                              style={ (x === date.current)
                                      ? styles.today
                                      : ( x === selectedDay )

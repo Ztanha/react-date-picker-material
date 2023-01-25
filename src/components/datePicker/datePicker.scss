@@ -84,8 +84,12 @@
     border-radius: 100px;
     cursor:pointer;
   }
+  .empty-cell{
+    border: none !important;
+    pointer-events: none !important;
+    cursor: none;
+  }
   .days{
-    cursor: pointer;
     .days-grid{
       box-sizing: border-box;
       min-width: 304px;
