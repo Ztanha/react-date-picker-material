@@ -1,7 +1,7 @@
-function Buttons() {
+function Actions() {
     return (
         <>
         </>
     )
 }
-export default Buttons;
+export default Actions;
