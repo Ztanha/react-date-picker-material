@@ -1,18 +1,18 @@
-$font-family : Roboto,-apple-system, Ubuntu, arial;
+$font-family : inherit;
 
 @mixin font-body-small {
   font-family: $font-family;
-  font-size: 12px;
+  font-size: 0.75em;
   font-weight: 400;
   line-height: 16px;
   letter-spacing: 0.4000000059604645px;
   text-align: left;
 }
 @mixin font-title-medium{
-  font-family: 'Roboto', serif;
+  font-family: $font-family;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 24px;
   letter-spacing: 0.15px;
   text-align:left;
@@ -26,7 +26,7 @@ $font-family : Roboto,-apple-system, Ubuntu, arial;
 }
 @mixin font-label-large {
   font-family: $font-family;
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: 500;
   font-style: normal;
   line-height: 20px;
@@ -34,24 +34,24 @@ $font-family : Roboto,-apple-system, Ubuntu, arial;
   align-content: center;
 }
 @mixin font-headline-small{
-  font-family: Roboto,sans-serif;
-  font-size: 24px;
+  font-family: $font-family;
+  font-size: 1.5em;
   font-weight: 400;
   line-height: 32px;
   letter-spacing: 0;
   text-align: left;
 }
 @mixin font-headline-large{
-  font-family: Roboto,sans-serif;
-  font-size: 32px;
+  font-family: $font-family;
+  font-size: 2em;
   font-weight: 400;
   line-height: 32px;
   letter-spacing: 0;
   text-align: left;
 }
 @mixin font-label-medium {
-  font-family: Roboto,serif;
-  font-size: 12px;
+  font-family: $font-family;
+  font-size: .75em;
   font-weight: 500;
   font-style: normal;
   line-height: 16px;
