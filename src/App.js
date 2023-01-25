@@ -15,7 +15,11 @@ function App() {
                   hide={ ()=>setShow(false)}
                   setDate={ setDate }
                   // title={ 'Pick up a date' }
-                  style={{ fontFamily:'Roboto',width:'100px' }}
+                  style={{ fontFamily:'Roboto',
+                            width:'300px',
+                            top:'10px',
+                            zIndex:'1'
+                  }}
       />
     </div>
   );
