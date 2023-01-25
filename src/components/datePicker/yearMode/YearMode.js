@@ -22,12 +22,6 @@ function YearMode(props) {
         selected:{
             border: `1px solid ${ colors.primary }`,
         },
-        icons:{
-            fill:colors.onSurfaceVariant
-        },
-        smallDate:{
-            color:colors.onSurfaceVariant
-        }
     }
     function reloadCells(referenceYear) {
         setCells( range(referenceYear-6 , referenceYear+8))
@@ -46,27 +40,6 @@ function YearMode(props) {
                     month={ props.month }
                     year={ (selectedYear || props.year) }
         />
-        {/*<div className="localSelectionRow grid-order">*/}
-        {/*    <div className="date"*/}
-        {/*         onClick={ ()=>props.setMode('days') }*/}
-        {/*         style={styles.smallDate}*/}
-        {/*    >*/}
-        {/*        { monthName(props.month) },{ selectedYear || props.year }*/}
-        {/*        <Arrow className='icon-down'*/}
-        {/*               style={ styles.icons }*/}
-        {/*        />*/}
-        {/*    </div>*/}
-        {/*    <div className="icons">*/}
-        {/*        <SideArrow style={ styles.icons }*/}
-        {/*                   className="icon-left"*/}
-        {/*                   onClick={ ()=>reloadCells(refYear.current-15)}*/}
-        {/*        />*/}
-        {/*        <SideArrow style={ styles.icons }*/}
-        {/*                   className="icon-right"*/}
-        {/*                   onClick={ ()=>reloadCells(refYear.current+15)}*/}
-        {/*        />*/}
-        {/*    </div>*/}
-        {/*</div>*/}
         <div className="years" style={{}}>
             <div className="years-grid">
                 { cells.map( x=>
