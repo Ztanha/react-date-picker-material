@@ -50,10 +50,6 @@ const DayMode = props=>{
         setCells(calendar);
     }
 
-    function handleSelect(day) {
-        setSelectedDay(new Date(refYear,refMonth,day).getTime())
-    }
-
     function resetRefMonth( newValue ) {
         let value;
 
@@ -120,7 +116,7 @@ const DayMode = props=>{
                     )}
                     { cells?.map(( x,index )=>
                         <div key={ index }
-                             onClick={()=>handleSelect( x )}
+                             onClick={()=>setSelectedDay( x )}
                              className='cell'
                              style={ (x === dayPointer)
                                      ? styles.today
@@ -129,7 +125,7 @@ const DayMode = props=>{
                                              : {}
                              }
                         >
-                            {new Date(x).getDate() || ''}
+                            { new Date(x).getDate() || '' }
                         </div>
                     ) }
                 </div>
