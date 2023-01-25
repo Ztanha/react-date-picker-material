@@ -3,7 +3,7 @@ import {ReactComponent as Arrow} from "../icons/right.svg";
 import {ReactComponent as SideArrow} from "../icons/sideArrow.svg";
 
 function HeaderDate( props ){
-    const style={
+    const styles={
         icons:{
             fill:colors.onSurfaceVariant
         },
