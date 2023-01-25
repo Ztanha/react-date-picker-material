@@ -1,8 +1,7 @@
 import {useTheme} from "../../../ThemeContext.js";
-import {daysInMonth, getMonthStartDay, getTimestampWithoutTime, monthName} from "../utilities.js";
+import {daysInMonth, getMonthStartDay, getTimestampWithoutTime} from "../utilities.js";
 
 import {useEffect, useRef, useState} from "react";
-import Button from "../../button/Button.js";
 import HeaderDate from "../HeaderDate.js";
 import Actions from "../Actions.js";
 
@@ -18,9 +17,6 @@ const DayMode = props=>{
     const [ refYear,setRefYear ] = useState();
     const styles={
         calGrids:{
-            color:colors.onSurface,
-        },
-        calHeader:{
             color:colors.onSurface,
         },
         today:{
@@ -91,7 +87,7 @@ const DayMode = props=>{
                         year={ refYear }
             />
         </div>
-            <div className="days" style={styles.calGrids}>
+            <div className="days" style={ styles.calGrids }>
                 <div className="days-grid">
                     { weekday.map((x,index)=>
                         <div key={ index }

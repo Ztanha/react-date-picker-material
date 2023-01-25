@@ -37,7 +37,9 @@ function ActualDatePicker(props) {
         title:{
             color:colors.onSurfaceVariant,
         },
-
+        calHeader:{
+            color:colors.onSurface,
+        }
     }
     useEffect(() => {
         const tempDate = new Date(props.date);
