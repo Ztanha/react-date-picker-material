@@ -81,7 +81,6 @@ const DayMode = props=>{
 
     },[ props.date,date,setRefMonth,setRefYear ])
 
-    console.log(props.date,date.current)
     return (<>
         <div className="localSelectionRow grid-order">
             <HeaderDate onClickForward={ ()=>resetRefMonth(refMonth+1 ) }
@@ -90,25 +89,6 @@ const DayMode = props=>{
                         month={ refMonth }
                         year={ refYear }
             />
-            {/*<div className="date"*/}
-            {/*     onClick={ ()=>props.setMode('years') }*/}
-            {/*     style={ styles.smallDate }*/}
-            {/*>*/}
-            {/*    { monthName(refMonth)},{ refYear }*/}
-            {/*    <Arrow className='icon-down'*/}
-            {/*           style={ styles.icons }*/}
-            {/*    />*/}
-            {/*</div>*/}
-            {/*<div className="icons">*/}
-            {/*    <SideArrow style={ styles.icons }*/}
-            {/*               className="icon-left"*/}
-            {/*               onClick={ ()=>resetRefMonth(refMonth-1) }*/}
-            {/*    />*/}
-            {/*    <SideArrow style={ styles.icons }*/}
-            {/*               className="icon-right"*/}
-            {/*               onClick={ ()=>resetRefMonth(refMonth+1 ) }*/}
-            {/*    />*/}
-            {/*</div>*/}
         </div>
             <div className="days" style={styles.calGrids}>
                 <div className="days-grid">
