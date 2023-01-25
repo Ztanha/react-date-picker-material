@@ -17,7 +17,7 @@ function HeaderDate( props ){
     return (
         <div className="localSelectionRow grid-order">
             <div className="date"
-                 onClick={ ()=>props.onClickDown }
+                 onClick={ props.onClickDown }
                  style={ styles.smallDate }
             >
                 { monthName(props.month)},{ props.year }
