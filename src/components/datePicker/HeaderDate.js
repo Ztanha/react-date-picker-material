@@ -1,6 +1,6 @@
 import {monthName} from "./utilities.js";
-import {ReactComponent as Arrow} from "../icons/right.svg";
-import {ReactComponent as SideArrow} from "../icons/sideArrow.svg";
+import {ReactComponent as Arrow} from "./icons/right.svg";
+import {ReactComponent as SideArrow} from "./icons/sideArrow.svg";
 import {useTheme} from "../../ThemeContext.js";
 
 
