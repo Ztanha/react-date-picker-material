@@ -15,7 +15,7 @@ function HeaderDate( props ){
         }
     }
     return (
-        <>
+        <div className="localSelectionRow grid-order">
             <div className="date"
                  onClick={ ()=>props.onClickDown }
                  style={ styles.smallDate }
@@ -35,7 +35,7 @@ function HeaderDate( props ){
                            onClick={ props.onClickForward }
                 />
             </div>
-        </>
+        </div>
     )
 }
 export default HeaderDate;

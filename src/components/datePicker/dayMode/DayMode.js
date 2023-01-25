@@ -82,7 +82,7 @@ const DayMode = props=>{
     },[ props.date,date,setRefMonth,setRefYear ])
 
     return (<>
-        <div className="localSelectionRow grid-order">
+        <div>
             <HeaderDate onClickForward={ ()=>resetRefMonth(refMonth+1 ) }
                         onClickBackward={ ()=>resetRefMonth(refMonth-1) }
                         onClickDown={ ()=>props.setMode('years') }
