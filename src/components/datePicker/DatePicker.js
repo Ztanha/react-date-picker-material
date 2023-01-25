@@ -34,6 +34,9 @@ function ActualDatePicker(props) {
             background : colors.surface3,
             fontFamily:'Roboto,-apple-system, Ubuntu, sans-serif',
         },
+        title:{
+            color:colors.onSurfaceVariant,
+        }
 
     }
     useEffect(() => {
@@ -51,7 +54,7 @@ function ActualDatePicker(props) {
             >
                 <div className="calendar">
                     <div className="calendar-header" >
-                        <label>
+                        <label style={ styles.title }>
                             { props.title || 'Select date' }
                         </label>
                         <div className="header-date grid-order"
