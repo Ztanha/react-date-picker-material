@@ -14,6 +14,7 @@ function App() {
                   show={ show }
                   hide={ ()=>setShow(false)}
                   setDate={ setDate }
+                  title={ 'salam' }
       />
     </div>
   );

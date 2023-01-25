@@ -22,11 +22,8 @@ function ActualDatePicker(props) {
         const tempDate = new Date(props.date);
         const month = tempDate.getMonth();
         const day =tempDate.getDate();
-        props.setDate(new Date(year,month,day).getTime())
+        props.setDate( new Date(year,month,day).getTime() )
         setMode('days')
-    }
-    function handleDayChange(){
-
     }
     const styles={
         datePicker:{
@@ -77,7 +74,6 @@ function ActualDatePicker(props) {
                     ? <DayMode setDate={ props.setDate }
                                date={ props.date }
                                setMode={ setMode }
-                               onChange={ handleDayChange }
                                hide={ props.hide }
                     />
                     : <YearMode year={ year }
