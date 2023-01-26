@@ -17,36 +17,6 @@ export default function Button(props) {
     }
 
     const styles = {
-        outline : {
-            default:{
-                backgroundColor:colors.surface,
-                color: colors.primary,
-                border: `1px solid ${colors.primary}`
-            },
-            hovered:{
-
-                backgroundColor:`rgba(${ formatColor(colors.primary) }, .08)` ,
-            },
-            activated:{
-
-                backgroundColor:`rgba(${ formatColor(colors.primary) }, .12)` ,
-            }
-        },
-        filled : {
-            default: {
-                color : colors.onPrimary,
-                backgroundColor: colors.primary,
-                border: 'none',
-            },
-            hovered:{
-
-                boxShadow: '0px 1px 3px 1px rgba(0, 0, 0, 0.15),0px 1px 2px 0px rgba(0, 0, 0, 0.3)',
-            },
-            activated:{
-
-                boxShadow: 'none'
-            }
-        },
         text : {
             default:{
                 color : colors.primary,
