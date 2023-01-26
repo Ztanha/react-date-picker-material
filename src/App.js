@@ -14,10 +14,11 @@ function App() {
                   show={ show }
                   hide={ ()=>setShow(false)}
                   setDate={ setDate }
+                  theme={ 'dark' }
                   // title={ 'Pick up a date' }
                   style={{ fontFamily:'Roboto',
                             width:'300px',
-                            top:'10px',
+                            // top:'10px',
                             zIndex:'1'
                   }}
       />

@@ -14,7 +14,7 @@ function ActualDatePicker(props) {
     const [ mode,setMode ]=useState('days')
     const [ month,setMonth ]=useState(0);
     const [ year,setYear ]=useState(0);
-    const [colors]= useTheme();
+    const [colors, setTheme, setColors]= useTheme();
     const date = useRef(new Date());
 
     function handleYearChange(year) {
@@ -37,6 +37,14 @@ function ActualDatePicker(props) {
             color:colors.onSurface,
         }
     }
+    useEffect(()=>{
+        if( typeof props.colors !== "undefined"){
+            setColors (props.colors)
+            setTheme( props.theme || 'light' );
+        }
+
+    },[ props.colors,setTheme,setColors,props.theme ])
+
     useEffect(() => {
         const tempDate = new Date(props.date);
         setMonth( tempDate.getMonth() );
