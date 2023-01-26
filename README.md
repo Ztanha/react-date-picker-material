@@ -73,7 +73,6 @@ Each of the objects in the light and dark modes must include the following varia
 - `surfaceVariant`: a CSS color value that represents the surface variant color of the theme
 - `onSurfaceVariant`: a CSS color value that represents the color of text or other elements on top of the surface variant color
 - `surface`: a CSS color value that represents the surface color of the button
-- `outline`: a CSS color value that represents the outline color of the theme
 - `outlineVariant`: a CSS color value that represents the color of the lines
 - `scrim`: a CSS color value that represents the scrim color of the theme
 - `tertiaryContainer`: a CSS color value that represents the tertiary container color of the theme
