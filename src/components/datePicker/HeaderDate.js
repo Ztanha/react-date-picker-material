@@ -20,7 +20,7 @@ function HeaderDate( props ){
                  onClick={ props.onClickDown }
                  style={ styles.smallDate }
             >
-                { monthName(props.month)},{ props.year }
+                { monthName(props.month)} { props.year }
                 <Arrow className='icon-down'
                        style={ styles.icons }
                 />
