@@ -17,12 +17,8 @@ function ActualDatePicker(props) {
     const [colors, setTheme, setColors]= useTheme();
     const date = useRef(new Date());
 
-    console.log(props.theme)
     function handleYearChange(year) {
-        const tempDate = new Date(props.date);
-        const month = tempDate.getMonth();
-        const day =tempDate.getDate();
-        props.setDate( new Date(year,month,day).getTime() )
+        props.setDate( new Date(props.date).setFullYear(year))
         setMode('days')
     }
     const styles={
