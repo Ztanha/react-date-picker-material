@@ -29,7 +29,7 @@ function ThemeProvider(props){
 
     const [ theme,setTheme ] = useState( 'light' );
 
-    let colors = (theme === 'dark' ? themes.dark : themes.light);
+    let colors = (theme === 'dark' ? themes?.dark : themes?.light);
 
     return <ThemeContext.Provider {...props} value={[ colors ,setTheme ,setThemes ]}/>
 }
