@@ -36,7 +36,10 @@ function ActualDatePicker(props) {
         },
         calHeader:{
             color:colors.onSurface,
-        }
+        },
+        icons:{
+            fill:colors.onSurfaceVariant
+        },
     }
     useEffect(()=>{
         if( props.theme) setTheme( props.theme );
