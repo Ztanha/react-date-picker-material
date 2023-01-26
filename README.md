@@ -64,7 +64,7 @@ DatePicker has the following props:
 - `date`: Is a default value for date in form of a timestamp.
 - `theme` : Which can have two values of 'light' or 'dark'. This variable has set 'light' by default.
 - `style`: Is an optional variable for styling the component. Can be used for changing font-family and etc.
-- `colors`: An optional variable in form of an object including two possible theme light and dark, which by default is on 'light' mode
+- `colors`: An optional variable in form of an object including two objects named light and dark, which are possible modes of theme, that by default is on 'light' mode
 
 ### `Colors` Variables
 
