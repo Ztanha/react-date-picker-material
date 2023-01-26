@@ -77,8 +77,6 @@ Each of the objects in the light and dark modes must include the following varia
 - `scrim`: a CSS color value that represents the scrim color of the theme
 - `tertiaryContainer`: a CSS color value that represents the tertiary container color of the theme
 - `onPrimary`: a CSS color value that represents the color of text or other elements on top of the primary color
-- `primaryContainer`: a CSS color value that represents the primary container color of the theme
-- `onPrimaryContainer`: a CSS color value that represents the color of text or other elements on top of the primary container color
 - `surface3`: a CSS color value that represents the background color of the modal.
 
 
