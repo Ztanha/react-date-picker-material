@@ -69,13 +69,10 @@ DatePicker has the following props:
 ### `Colors` Variables
 
 Each of the objects in the light and dark modes must include the following variables:
-- `primary`: a CSS color value that represents the primary color of the theme
-- `surfaceVariant`: a CSS color value that represents the surface variant color of the theme
+- `primary`: a CSS color value that represents the primary color of the theme used in buttons and the calendar
 - `onSurfaceVariant`: a CSS color value that represents the color of text or other elements on top of the surface variant color
-- `surface`: a CSS color value that represents the surface color of the button
 - `outlineVariant`: a CSS color value that represents the color of the lines
 - `scrim`: a CSS color value that represents the scrim color of the theme
-- `tertiaryContainer`: a CSS color value that represents the tertiary container color of the theme
 - `onPrimary`: a CSS color value that represents the color of text or other elements on top of the primary color
 - `surface3`: a CSS color value that represents the background color of the modal.
 

@@ -6,7 +6,6 @@ function ThemeProvider(props){
     const [ themes,setThemes ] = useState({
         light:{
             primary : '#6750A4',
-            surfaceVariant: 'rgba(231, 224, 236, 1)',
             onSurfaceVariant: '#49454F',
             onSurface: '#1C1B1F',
             outlineVariant:'#CAC4D0',
@@ -18,12 +17,10 @@ function ThemeProvider(props){
         },
         dark: {
             primary : '#D0BCFF',
-            surfaceVariant: '#49454F',
             onSurfaceVariant: '#CAC4D0',
             onSurface: '#E6E1E5',
             outlineVariant:'#49454F',
             scrim:'rgb(0,0,0,0.25)',
-            tertiaryContainer:'#633B48',
             onPrimary: '#381E72',
             surface3: 'linear-gradient(0deg, #1C1B1F, #1C1B1F),' +
                 '    linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11))'
