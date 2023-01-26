@@ -1,10 +1,13 @@
 @import "../../../src/App";
 .DatePicker{
   //width: 304px;
-  .btns-container{
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: end;
+  .actions{
+    margin-top: .5em;
+    .btns-container{
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: end;
+    }
   }
   .calendar-header{
     @include font-label-medium;
@@ -70,6 +73,7 @@
     min-width: 304px;
     @include font-body-large;
     .years-grid{
+      margin: 10px 0;
       display: grid;
       grid-template-columns: repeat(3,auto);
       grid-template-rows: repeat(5,40px);
