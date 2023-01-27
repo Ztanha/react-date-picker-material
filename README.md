@@ -4,7 +4,7 @@ DatePicker is a user interface component that allows the user to easily select a
 
 ## Features
 
-- DatePicker appearance is based on Material design v3 with more features to improve the user experience for date input.
+- DatePicker appearance is based on Material design v3.
 
 ## Installation
 
