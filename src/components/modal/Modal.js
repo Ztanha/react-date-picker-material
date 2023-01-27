@@ -27,7 +27,8 @@ function Modal( props ) {
                     onClick={ props.hide }
                     ref={ scrim }
                     style={{
-                        backgroundColor:`${ colors.scrim }`
+                        backgroundColor:`${ colors.scrim }`,
+                        zIndex: (props.style.zIndex || 1000)
                     }}
 
                 />

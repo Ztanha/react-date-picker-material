@@ -21,10 +21,10 @@ function App() {
                   setDate={ setDate }
                   theme={ 'dark' }
                   // title={ 'Pick up a date' }
-                  style={{ fontFamily:'Roboto',
+                  style={{ fontFamily:'Roboto,sans-serif',
                             width:'300px',
                             // top:'10px',
-                            zIndex:'1'
+                            zIndex:'1006'
                   }}
       />
     </div>

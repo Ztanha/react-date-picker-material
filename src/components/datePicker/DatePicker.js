@@ -56,7 +56,7 @@ function ActualDatePicker(props) {
 
     return (
         <div className='DatePicker'
-             style={{ ...styles.datePicker,...props.style }}
+             style={{ ...styles.datePicker}}
         >
             <Modal show={ props.show }
                    hide={ props.hide }
