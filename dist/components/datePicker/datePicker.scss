@@ -1,0 +1,116 @@
+@import "../../../src/App";
+.DatePicker{
+  //width: 304px;
+  .actions{
+    margin-top: .5em;
+    .btns-container{
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: end;
+    }
+  }
+  .calendar-header{
+    @include font-label-medium;
+  }
+  .pointer{
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+  }
+  //height: 280px;
+  .header-date{
+    @include font-headline-large;
+    padding:.5em 0;
+    align-items: center;
+    svg{
+      padding-right: 8px;
+      width: .7em;
+      justify-self: center;
+
+    }
+  }
+  .grid-order{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+  .localSelectionRow{
+    @include font-label-large;
+    vertical-align: middle;
+    .date{
+      padding: 1em 0;
+      cursor: pointer;
+      svg{
+        width: .33em;
+        padding:0 0.5em;
+      }
+    }
+  }
+  .icon-down{
+    transform: rotate(90deg);
+    width: .4em;
+    margin: 0 .4em;
+    vertical-align: middle;
+  }
+  .icons{
+    cursor: pointer;
+    svg{
+      width: .6em;
+      padding: 1em;
+    }
+    .icon-left{
+      transform: rotate(180deg);
+    }
+  }
+  .line{
+    position: absolute;
+    width: 100%;
+    height:.1em;
+    left: 0;
+  }
+  .years{
+    min-width: 304px;
+    @include font-body-large;
+    .years-grid{
+      margin: 10px 0;
+      display: grid;
+      grid-template-columns: repeat(3,auto);
+      grid-template-rows: repeat(5,40px);
+      grid-gap: 10px;
+    }
+    .now{
+      @include font-title-medium;
+    }
+  }
+  .cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    cursor:pointer;
+  }
+  .empty-cell{
+    border: none !important;
+    pointer-events: none !important;
+    cursor: none;
+  }
+  .days{
+    .days-grid{
+      box-sizing: border-box;
+      min-width: 304px;
+      @include font-body-small;
+      display: grid;
+      grid-template-columns: repeat(7,auto);
+      grid-template-rows: repeat(6,40px);
+      grid-gap: 4px;
+      span{
+        border-radius: 100%;
+      }
+      .first-row{
+        pointer-events: none !important;
+        cursor: none !important;
+      }
+    }
+  }
+}

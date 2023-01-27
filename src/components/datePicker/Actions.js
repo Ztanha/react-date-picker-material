@@ -1,4 +1,5 @@
 import Button from "../button/Button.js";
+import React from "react";
 
 function Actions(props) {
     return (

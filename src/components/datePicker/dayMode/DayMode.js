@@ -1,7 +1,7 @@
 import {useTheme} from "../../../ThemeContext.js";
 import {daysInMonth, getMonthStartDay, getTimestampWithoutTime} from "../utilities.js";
 
-import {useEffect, useRef, useState} from "react";
+import React,{useEffect, useRef, useState} from "react";
 import HeaderDate from "../HeaderDate.js";
 import Actions from "../Actions.js";
 
@@ -41,6 +41,10 @@ const DayMode = props=>{
         }
         setCells(calendar);
     }
+    function handleSave(){
+        props.setDate(selectedDay);
+        props.selectDate()
+    }
 
     function resetRefMonth( newValue ) {
         let value;
@@ -60,11 +64,6 @@ const DayMode = props=>{
             value = newValue;
         }
         setRefMonth(value);
-    }
-    function handleSave(){
-        props.setDate(selectedDay)
-        alert('Time Saved!')
-        props.hide();
     }
 
     useEffect(()=>{

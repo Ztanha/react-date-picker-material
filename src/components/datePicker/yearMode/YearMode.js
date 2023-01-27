@@ -1,5 +1,5 @@
 import {range} from "../utilities.js";
-import {useEffect, useRef, useState} from "react";
+import React,{useEffect, useRef, useState} from "react";
 import {useTheme} from "../../../ThemeContext.js";
 import HeaderDate from "../HeaderDate.js";
 import Actions from "../Actions.js";

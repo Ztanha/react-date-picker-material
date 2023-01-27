@@ -1,6 +1,6 @@
 import './datePicker.scss'
 import {Modal} from "../modal/Modal.js";
-import {useEffect, useRef, useState} from "react";
+import React,{useEffect, useRef, useState} from "react";
 import {ReactComponent as Pencil} from "./icons/pencil.svg";
 import {ThemeProvider, useTheme} from "../../ThemeContext.js";
 import DayMode from "./dayMode/DayMode.js";
@@ -71,9 +71,8 @@ function ActualDatePicker(props) {
                              style={ styles.calHeader }
                         >
                             { weekday[ date?.current.getDay() ] },
-                            { monthName( date?.current.getMonth()).slice(0,3) }
+                            {  ' '+ monthName( date?.current.getMonth()).slice(0,3) + ' ' }
                             { date?.current.getDate() }
-
                             <Pencil style={ styles.icons }/>
                         </div>
                     </div>
@@ -87,6 +86,7 @@ function ActualDatePicker(props) {
                                date={ props.date }
                                setMode={ setMode }
                                hide={ props.hide }
+                               selectDate={ props.selectDate }
                     />
                     : <YearMode year={ year }
                                 month={ month }
