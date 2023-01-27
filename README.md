@@ -13,6 +13,8 @@ To install DatePicker, run the following command:
 `npm install react-date-picker-material`
 
 ## Interactive Demo
+<img src="../imgs/light.png" width="200" />
+<img src="../imgs/dark.png" width="200" />
 
 To see DatePicker in action, you can use the following link: https://sh90fu.csb.app/
 

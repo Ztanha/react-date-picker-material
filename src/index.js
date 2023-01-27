@@ -1,3 +1,11 @@
-import React from "react";
-import DatePicker from "./components/datePicker/DatePicker.js";
-export default DatePicker;
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.js'
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+);
+

@@ -42,7 +42,7 @@ const DayMode = props=>{
         setCells(calendar);
     }
     function handleSave(){
-        props.setDate(selectedDay);
+        props.setDate(selectedDay || props.date);
         props.selectDate()
     }
 
