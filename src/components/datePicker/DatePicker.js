@@ -10,7 +10,7 @@ const DatePicker = props=><ThemeProvider><ActualDatePicker {...props}/></ThemePr
 
 function ActualDatePicker(props) {
 
-    const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sau"];
+    const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
     const [ mode,setMode ]=useState('days')
     const [ month,setMonth ]=useState(0);
     const [ year,setYear ]=useState(0);

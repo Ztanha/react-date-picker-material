@@ -32,10 +32,10 @@ function App() {
     // title={ 'Pick up a date' }
     ,
     style: {
-      fontFamily: 'Roboto',
+      fontFamily: 'Roboto,sans-serif',
       width: '300px',
       // top:'10px',
-      zIndex: '1'
+      zIndex: '1006'
     }
   }));
 }

@@ -37,7 +37,7 @@ function _toPrimitive(input, hint) { if (typeof input !== "object" || input === 
 })();
 const DatePicker = props => /*#__PURE__*/_react.default.createElement(_ThemeContext.ThemeProvider, null, /*#__PURE__*/_react.default.createElement(ActualDatePicker, props));
 function ActualDatePicker(props) {
-  const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sau"];
+  const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const [mode, setMode] = (0, _react.useState)('days');
   const [month, setMonth] = (0, _react.useState)(0);
   const [year, setYear] = (0, _react.useState)(0);
@@ -79,7 +79,7 @@ function ActualDatePicker(props) {
   }, [props.date, setMonth, setYear, date]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "DatePicker",
-    style: _objectSpread(_objectSpread({}, styles.datePicker), props.style)
+    style: _objectSpread({}, styles.datePicker)
   }, /*#__PURE__*/_react.default.createElement(_Modal.Modal, {
     show: props.show,
     hide: props.hide,

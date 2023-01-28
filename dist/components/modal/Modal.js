@@ -50,7 +50,8 @@ function Modal(props) {
     onClick: props.hide,
     ref: scrim,
     style: {
-      backgroundColor: "".concat(colors.scrim)
+      backgroundColor: "".concat(colors.scrim),
+      zIndex: props.style.zIndex || 1000
     }
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-container",
