@@ -12,9 +12,9 @@ const DayMode = props=>{
     const weekday= ["Su","Mo","Tu","We","Th","Fr","Sa"];
     const [ cells,setCells] = useState();
     const [ selectedDay,setSelectedDay ] = useState();
-    const date = useRef(new Date());
-    const [ refMonth,setRefMonth ] = useState();
-    const [ refYear,setRefYear ] = useState();
+    const date = useRef(getTimestampWithoutTime(props.date));
+    const [ refMonth,setRefMonth ] = useState(new Date( date.current).getMonth());
+    const [ refYear,setRefYear ] = useState(new Date(date.current).getFullYear());
     const styles={
         calGrids:{
             color:colors.onSurface,
@@ -41,6 +41,7 @@ const DayMode = props=>{
         }
         setCells(calendar);
     }
+    console.log(cells)
     function handleSave(){
         props.setDate(selectedDay || props.date);
         props.selectDate()
@@ -82,6 +83,7 @@ const DayMode = props=>{
 
     },[ props.date,date,setRefMonth,setRefYear ])
 
+    console.log(date.current)
     return (<>
         <div>
             <HeaderDate onClickForward={ ()=>resetRefMonth(refMonth+1 ) }
@@ -104,7 +106,7 @@ const DayMode = props=>{
                         <div key={ index }
                              onClick={()=>setSelectedDay( x ) }
                              className={ (x !==" ") ? 'cell' :'empty-cell' }
-                             style={ (x === date.current)
+                             style={ (x === props.date)
                                      ? styles.today
                                      : ( x === selectedDay )
                                              ? styles.selectedCell

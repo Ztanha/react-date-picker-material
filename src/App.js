@@ -5,7 +5,6 @@ function App() {
     const [ date,setDate ] = useState(Date.now());
     const [ show,setShow ] = useState(false);
     function handleSelect() {
-        alert('Saved!')
         setShow(false);
     }
   return (
@@ -19,7 +18,7 @@ function App() {
                   hide={ ()=>setShow(false)}
                   selectDate={ handleSelect }
                   setDate={ setDate }
-                  theme={ 'dark' }
+                  theme={ 'light' }
                   // title={ 'Pick up a date' }
                   style={{ fontFamily:'Roboto,sans-serif',
                             width:'300px',

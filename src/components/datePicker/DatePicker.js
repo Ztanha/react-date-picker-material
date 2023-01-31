@@ -12,10 +12,20 @@ function ActualDatePicker(props) {
 
     const weekday= ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
     const [ mode,setMode ]=useState('days')
-    const [ month,setMonth ]=useState(0);
-    const [ year,setYear ]=useState(0);
-    const [colors, setTheme, setColors]= useTheme();
     const date = useRef(new Date());
+    const [ month,setMonth ]=useState(date.current.getMonth());
+    const [ year,setYear ]=useState(date.current.getFullYear());
+    const [colors, setTheme, setColors]= useTheme();
+
+    useEffect(() => {
+        if (props.date) {
+            const tempDate = new Date(props.date);
+            setMonth( tempDate.getMonth() );
+            setYear( tempDate.getFullYear() );
+            date.current = tempDate;
+        }
+
+    }, [ props.date,setMonth,setYear,date ])
 
     function handleYearChange(year) {
         props.setDate( new Date(props.date).setFullYear(year))
@@ -47,17 +57,6 @@ function ActualDatePicker(props) {
         }
     },[ props.colors,setColors ])
 
-    useEffect(() => {
-
-        if ( props.date.length > 0 ) {
-            const tempDate = new Date(props.date);
-            setMonth( tempDate.getMonth() );
-            setYear( tempDate.getFullYear() );
-            date.current = tempDate;
-        }
-
-    }, [ props.date,setMonth,setYear,date ])
-
     return (
         props.show && (<div className='DatePicker'
              style={{ ...styles.datePicker}}
@@ -87,7 +86,7 @@ function ActualDatePicker(props) {
                 { mode === 'days'
 
                     ? <DayMode setDate={ props.setDate }
-                               date={ props.date }
+                               date={ date.current.valueOf() }
                                setMode={ setMode }
                                hide={ props.hide }
                                selectDate={ props.selectDate }

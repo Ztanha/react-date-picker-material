@@ -39,10 +39,10 @@ const DatePicker = props => /*#__PURE__*/_react.default.createElement(_ThemeCont
 function ActualDatePicker(props) {
   const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const [mode, setMode] = (0, _react.useState)('days');
-  const [month, setMonth] = (0, _react.useState)(0);
-  const [year, setYear] = (0, _react.useState)(0);
-  const [colors, setTheme, setColors] = (0, _ThemeContext.useTheme)();
   const date = (0, _react.useRef)(new Date());
+  const [month, setMonth] = (0, _react.useState)(date.current.getMonth());
+  const [year, setYear] = (0, _react.useState)(date.current.getFullYear());
+  const [colors, setTheme, setColors] = (0, _ThemeContext.useTheme)();
   function handleYearChange(year) {
     props.setDate(new Date(props.date).setFullYear(year));
     setMode('days');
@@ -72,12 +72,14 @@ function ActualDatePicker(props) {
     }
   }, [props.colors, setColors]);
   (0, _react.useEffect)(() => {
-    const tempDate = new Date(props.date);
-    setMonth(tempDate.getMonth());
-    setYear(tempDate.getFullYear());
-    date.current = tempDate;
+    if (props.date) {
+      const tempDate = new Date(props.date);
+      setMonth(tempDate.getMonth());
+      setYear(tempDate.getFullYear());
+      date.current = tempDate;
+    }
   }, [props.date, setMonth, setYear, date]);
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return props.show && /*#__PURE__*/_react.default.createElement("div", {
     className: "DatePicker",
     style: _objectSpread({}, styles.datePicker)
   }, /*#__PURE__*/_react.default.createElement(_Modal.Modal, {
@@ -102,7 +104,7 @@ function ActualDatePicker(props) {
     }
   }), mode === 'days' ? /*#__PURE__*/_react.default.createElement(_DayMode.default, {
     setDate: props.setDate,
-    date: props.date,
+    date: date.current,
     setMode: setMode,
     hide: props.hide,
     selectDate: props.selectDate
