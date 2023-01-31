@@ -48,14 +48,18 @@ function ActualDatePicker(props) {
     },[ props.colors,setColors ])
 
     useEffect(() => {
-        const tempDate = new Date(props.date);
-        setMonth( tempDate.getMonth() );
-        setYear( tempDate.getFullYear() );
-        date.current = tempDate;
+
+        if ( props.date.length > 0 ) {
+            const tempDate = new Date(props.date);
+            setMonth( tempDate.getMonth() );
+            setYear( tempDate.getFullYear() );
+            date.current = tempDate;
+        }
+
     }, [ props.date,setMonth,setYear,date ])
 
     return (
-        <div className='DatePicker'
+        props.show && (<div className='DatePicker'
              style={{ ...styles.datePicker}}
         >
             <Modal show={ props.show }
@@ -98,7 +102,7 @@ function ActualDatePicker(props) {
                 </div>
 
             </Modal>
-        </div>
+        </div>)
     )
 }
 
