@@ -9,15 +9,8 @@ function Modal( props ) {
     const scrim=useRef();
 
     const internalStyle={
-        zIndex: 1001
+        zIndex: 1001,
     }
-
-    useEffect(()=>{
-        if( modal.current ) {
-            let zIndex= parseInt( window.getComputedStyle( modal.current ).zIndex);
-            scrim.current.style.zIndex = zIndex - 1;
-        }
-    },[ modal,scrim ])
 
     return (
         props.show ? (
@@ -28,14 +21,14 @@ function Modal( props ) {
                     ref={ scrim }
                     style={{
                         backgroundColor:`${ colors.scrim }`,
-                        zIndex: (props.style.zIndex || 1000)
+                        zIndex: (props.style?.zIndex-1 || 1000)
                     }}
 
                 />
                 <div
                     className='modal-container'
                     ref={ modal }
-                    style={{ ...internalStyle,...props.style }}
+                    style={{ ...internalStyle,...(props.style || {}) }}
                 >
                     { props.children }
 

@@ -41,7 +41,6 @@ const DayMode = props=>{
         }
         setCells(calendar);
     }
-    console.log(cells)
     function handleSave(){
         props.setDate(selectedDay || props.date);
         props.selectDate()
@@ -83,7 +82,6 @@ const DayMode = props=>{
 
     },[ props.date,date,setRefMonth,setRefYear ])
 
-    console.log(date.current)
     return (<>
         <div>
             <HeaderDate onClickForward={ ()=>resetRefMonth(refMonth+1 ) }

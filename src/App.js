@@ -20,11 +20,11 @@ function App() {
                   setDate={ setDate }
                   theme={ 'light' }
                   // title={ 'Pick up a date' }
-                  style={{ fontFamily:'Roboto,sans-serif',
-                            width:'300px',
-                            // top:'10px',
-                            zIndex:'1006'
-                  }}
+                  // style={{ fontFamily:'Roboto,sans-serif',
+                  //           width:'300px',
+                  //           // top:'10px',
+                  //           zIndex:5
+                  // }}
       />
     </div>
   );

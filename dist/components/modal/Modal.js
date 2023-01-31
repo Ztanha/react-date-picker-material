@@ -7,7 +7,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Modal = Modal;
 require("core-js/modules/web.dom-collections.iterator.js");
-require("core-js/modules/es.parse-int.js");
 var _ThemeContext = require("../../ThemeContext.js");
 var _react = _interopRequireWildcard(require("react"));
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -18,7 +17,7 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 (function () {
-  const styles = ".modal-component {\n  position: absolute;\n  background: inherit;\n  top: 10%;\n}\n.modal-component .scrim {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.modal-component .modal-container {\n  position: fixed;\n  border-radius: 28px;\n  background: inherit;\n  left: 50%;\n  transform: translateX(-50%);\n  padding: 16px 24px;\n  text-align: left;\n}";
+  const styles = ".modal-component {\n  position: absolute;\n  background: inherit;\n  top: 10%;\n}\n\n.scrim {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.modal-container {\n  position: fixed;\n  border-radius: 28px;\n  background: inherit;\n  left: 50%;\n  transform: translateX(-50%);\n  padding: 16px 24px;\n  text-align: left;\n}";
   const fileName = "Modal_modal";
   const element = document.querySelector("style[data-sass-component='Modal_modal']");
   if (!element) {
@@ -31,18 +30,13 @@ function _toPrimitive(input, hint) { if (typeof input !== "object" || input === 
   }
 })();
 function Modal(props) {
+  var _props$style;
   const [colors] = (0, _ThemeContext.useTheme)();
   const modal = (0, _react.useRef)();
   const scrim = (0, _react.useRef)();
   const internalStyle = {
     zIndex: 1001
   };
-  (0, _react.useEffect)(() => {
-    if (modal.current) {
-      let zIndex = parseInt(window.getComputedStyle(modal.current).zIndex);
-      scrim.current.style.zIndex = zIndex - 1;
-    }
-  }, [modal, scrim]);
   return props.show ? /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-component"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -51,11 +45,11 @@ function Modal(props) {
     ref: scrim,
     style: {
       backgroundColor: "".concat(colors.scrim),
-      zIndex: props.style.zIndex || 1000
+      zIndex: ((_props$style = props.style) === null || _props$style === void 0 ? void 0 : _props$style.zIndex) - 1 || 1000
     }
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-container",
     ref: modal,
-    style: _objectSpread(_objectSpread({}, internalStyle), props.style)
+    style: _objectSpread(_objectSpread({}, internalStyle), props.style || {})
   }, props.children)) : '';
 }

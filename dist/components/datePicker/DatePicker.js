@@ -43,6 +43,14 @@ function ActualDatePicker(props) {
   const [month, setMonth] = (0, _react.useState)(date.current.getMonth());
   const [year, setYear] = (0, _react.useState)(date.current.getFullYear());
   const [colors, setTheme, setColors] = (0, _ThemeContext.useTheme)();
+  (0, _react.useEffect)(() => {
+    if (props.date) {
+      const tempDate = new Date(props.date);
+      setMonth(tempDate.getMonth());
+      setYear(tempDate.getFullYear());
+      date.current = tempDate;
+    }
+  }, [props.date, setMonth, setYear, date]);
   function handleYearChange(year) {
     props.setDate(new Date(props.date).setFullYear(year));
     setMode('days');
@@ -71,14 +79,6 @@ function ActualDatePicker(props) {
       setColors(props.colors);
     }
   }, [props.colors, setColors]);
-  (0, _react.useEffect)(() => {
-    if (props.date) {
-      const tempDate = new Date(props.date);
-      setMonth(tempDate.getMonth());
-      setYear(tempDate.getFullYear());
-      date.current = tempDate;
-    }
-  }, [props.date, setMonth, setYear, date]);
   return props.show && /*#__PURE__*/_react.default.createElement("div", {
     className: "DatePicker",
     style: _objectSpread({}, styles.datePicker)
@@ -104,7 +104,7 @@ function ActualDatePicker(props) {
     }
   }), mode === 'days' ? /*#__PURE__*/_react.default.createElement(_DayMode.default, {
     setDate: props.setDate,
-    date: date.current,
+    date: date.current.valueOf(),
     setMode: setMode,
     hide: props.hide,
     selectDate: props.selectDate

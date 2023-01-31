@@ -19,9 +19,9 @@ const DayMode = props => {
   const weekday = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
   const [cells, setCells] = (0, _react.useState)();
   const [selectedDay, setSelectedDay] = (0, _react.useState)();
-  const date = (0, _react.useRef)(new Date());
-  const [refMonth, setRefMonth] = (0, _react.useState)();
-  const [refYear, setRefYear] = (0, _react.useState)();
+  const date = (0, _react.useRef)((0, _utilities.getTimestampWithoutTime)(props.date));
+  const [refMonth, setRefMonth] = (0, _react.useState)(new Date(date.current).getMonth());
+  const [refYear, setRefYear] = (0, _react.useState)(new Date(date.current).getFullYear());
   const styles = {
     calGrids: {
       color: colors.onSurface
@@ -99,7 +99,7 @@ const DayMode = props => {
     key: index,
     onClick: () => setSelectedDay(x),
     className: x !== " " ? 'cell' : 'empty-cell',
-    style: x === date.current ? styles.today : x === selectedDay ? styles.selectedCell : {}
+    style: x === props.date ? styles.today : x === selectedDay ? styles.selectedCell : {}
   }, new Date(x).getDate() || ''))), /*#__PURE__*/_react.default.createElement(_Actions.default, {
     onClickLeftOne: props.hide,
     onClickRightOne: handleSave
